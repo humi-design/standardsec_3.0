@@ -141,6 +141,150 @@
 
         // Load saved preferences
         loadAccessibilityPreferences();
+
+        // ===== ADDITIONAL WCAG 2.2 AA ACCESSIBILITY =====
+
+        // Carousel/Slideshow Pause Control
+        initCarouselAccessibility();
+
+        // Form Validation Improvements
+        initFormAccessibility();
+
+        // Mobile Navigation ARIA
+        initMobileNavARIA();
+
+        // Screen Reader Announcements
+        initAnnouncer();
+    }
+
+    function initCarouselAccessibility() {
+        if (typeof UIkit !== 'undefined') {
+            var slideshows = document.querySelectorAll('[data-uk-slideshow]');
+            slideshows.forEach(function(slideshow) {
+                var nav = slideshow.querySelector('.uk-slideshow-nav');
+                if (!nav) return;
+                
+                var pauseBtn = nav.querySelector('[aria-label*="Pause"], [aria-label*="Play"]');
+                if (!pauseBtn) {
+                    pauseBtn = document.createElement('button');
+                    pauseBtn.setAttribute('aria-label', 'Pause slideshow');
+                    pauseBtn.textContent = 'Pause';
+                    nav.appendChild(pauseBtn);
+                }
+                
+                var isPaused = false;
+                pauseBtn.addEventListener('click', function() {
+                    isPaused = !isPaused;
+                    var ukSlideshow = UIkit.slideshow(slideshow);
+                    if (isPaused) {
+                        ukSlideshow.pause();
+                        this.setAttribute('aria-label', 'Play slideshow');
+                        this.textContent = 'Play';
+                    } else {
+                        ukSlideshow.start();
+                        this.setAttribute('aria-label', 'Pause slideshow');
+                        this.textContent = 'Pause';
+                    }
+                });
+            });
+        }
+    }
+
+    function initFormAccessibility() {
+        var forms = document.querySelectorAll('form');
+        forms.forEach(function(form) {
+            var inputs = form.querySelectorAll('input, textarea, select');
+            
+            // Add aria-required to required fields
+            inputs.forEach(function(input) {
+                if (input.hasAttribute('required') && !input.hasAttribute('aria-required')) {
+                    input.setAttribute('aria-required', 'true');
+                }
+            });
+            
+            // Form submission validation
+            form.addEventListener('submit', function(e) {
+                var invalidInputs = form.querySelectorAll(':invalid');
+                var firstInvalid = null;
+                
+                invalidInputs.forEach(function(input) {
+                    input.setAttribute('aria-invalid', 'true');
+                    if (!firstInvalid) firstInvalid = input;
+                    
+                    var errorId = input.id + '-error';
+                    var errorMsg = document.getElementById(errorId);
+                    if (!errorMsg) {
+                        errorMsg = document.createElement('div');
+                        errorMsg.id = errorId;
+                        errorMsg.className = 'form-error';
+                        errorMsg.setAttribute('role', 'alert');
+                        errorMsg.setAttribute('aria-live', 'polite');
+                        input.parentNode.insertBefore(errorMsg, input.nextSibling);
+                    }
+                    errorMsg.textContent = input.validationMessage || 'This field is required';
+                });
+                
+                // Clear valid fields
+                form.querySelectorAll('input:valid, textarea:valid').forEach(function(input) {
+                    input.setAttribute('aria-invalid', 'false');
+                    var errorId = input.id + '-error';
+                    var errorMsg = document.getElementById(errorId);
+                    if (errorMsg) errorMsg.remove();
+                });
+                
+                if (firstInvalid) {
+                    e.preventDefault();
+                    firstInvalid.focus();
+                    announceToScreenReader('Form has errors. Please correct the highlighted fields.');
+                }
+            });
+            
+            // Real-time validation
+            inputs.forEach(function(input) {
+                input.addEventListener('blur', function() {
+                    if (this.checkValidity()) {
+                        this.setAttribute('aria-invalid', 'false');
+                    } else if (this.value) {
+                        this.setAttribute('aria-invalid', 'true');
+                    }
+                });
+            });
+        });
+    }
+
+    function initMobileNavARIA() {
+        var navToggles = document.querySelectorAll('[class*="hamburger"], [class*="uk-navbar-toggle"], button[class*="toggle"], a[href*="menu"]');
+        navToggles.forEach(function(toggle) {
+            if (!toggle.getAttribute('aria-expanded')) {
+                toggle.setAttribute('aria-expanded', 'false');
+            }
+            if (!toggle.getAttribute('aria-label')) {
+                toggle.setAttribute('aria-label', 'Toggle navigation menu');
+            }
+        });
+        
+        // Escape closes menus
+        document.addEventListener('keydown', function(e) {
+            if (e.key === 'Escape') {
+                document.querySelectorAll('[aria-expanded="true"]').forEach(function(menu) {
+                    menu.setAttribute('aria-expanded', 'false');
+                });
+            }
+        });
+    }
+
+    function announceToScreenReader(message) {
+        var announcer = document.createElement('div');
+        announcer.setAttribute('aria-live', 'polite');
+        announcer.setAttribute('aria-atomic', 'true');
+        announcer.className = 'sr-only';
+        announcer.textContent = message;
+        document.body.appendChild(announcer);
+        setTimeout(function() { announcer.remove(); }, 1000);
+    }
+
+    function initAnnouncer() {
+        window.announceToScreenReader = announceToScreenReader;
     }
 
     function loadAccessibilityPreferences() {
