@@ -4,7 +4,7 @@
 <head>
     <!-- Standard Meta -->
     <meta charset="utf-8">
-    <meta name="description" content="Standard Securities & Investment Intermediates Ltd. - Trusted stock brokerage and investment services since 1994. Trade equity, commodities, currencies, IPOs with fast execution and excellent client service.">
+    <meta name="description" content="Standard Securities & Investment Intermediates Ltd. - Trusted stock brokerage services since 1994. Trade equity, commodities, currencies, IPOs with fast execution and excellent client service.">
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <meta name="theme-color" content="#146CE0" />
     <!-- Site Properties -->
@@ -15,13 +15,51 @@
     <link rel="stylesheet" href="css/uikit.css">
     <link rel="stylesheet" href="css/style.css">
     <link rel="stylesheet" href="css/style_bot.css">
-    <link rel="stylesheet" href="css/accessibility-fixes.css">
 
 
     <script src="https://www.google.com/recaptcha/api.js"></script>
     
     
     <style>
+/* Accessibility: Screen reader only class */
+.sr-only {
+  position: absolute;
+  width: 1px;
+  height: 1px;
+  padding: 0;
+  margin: -1px;
+  overflow: hidden;
+  clip: rect(0, 0, 0, 0);
+  white-space: nowrap;
+  border: 0;
+}
+
+/* Accessibility: Skip link */
+.skip-link {
+  position: absolute;
+  top: -100px;
+  left: 0;
+  background: #146CE0;
+  color: #fff;
+  padding: 8px 16px;
+  z-index: 99999;
+  text-decoration: none;
+  font-weight: 600;
+  transition: top 0.3s;
+}
+
+.skip-link:focus {
+  top: 0;
+  outline: 3px solid #FFD700;
+  outline-offset: 2px;
+}
+
+/* Accessibility: Focus indicators */
+*:focus-visible {
+  outline: 3px solid #146CE0;
+  outline-offset: 2px;
+}
+
 table {
   border-collapse: collapse;
   width: 100%;
@@ -39,16 +77,12 @@ tr:hover {background-color: #B8E2F2;}
 
 <body>
 
-    <!-- Skip Navigation Link -->
-    <a href="#main-content" class="skip-link">Skip to main content</a>
+    <!-- Skip to main content link for keyboard users -->
+    <a href="#maincontent" class="skip-link">Skip to main content</a>
 
-    <!-- Screen Reader Announcements -->
-    <div id="sr-announcer" aria-live="polite" aria-atomic="true" class="sr-only"></div>
+    <header data-uk-sticky="top: 400; cls-active: in-sticky" role="banner">
 
-    <header data-uk-sticky="top: 400; cls-active: in-sticky">
-
-        <!-- Language Translation Dropdown -->
-        <div id="header-translate" class="translate-btn"></div>
+        <div id="google_translate_element" class="translate-btn" aria-label="Google translation"></div>
 
         
         <!-- header content begin -->
@@ -197,12 +231,15 @@ tr:hover {background-color: #B8E2F2;}
                               </li>
                           
                               <!-- Complaints -->
+                                <!-- Complaints -->
                               <li role="none">
                                 <a href="complaint_new.html" role="menuitem" aria-label="Submit or check Complaints">Complaints</a>
                               </li>
-                              <!-- Language Toggle in Desktop Nav -->
-                              <li role="none" class="desktop-translate-toggle">
-                                <div id="google_translate_nav_desktop"></div>
+                              <li>
+                                <div id="google_translate_nav"></div>
+                              </li>
+                              <li>
+                                <div id="google_translate_nav"></div>
                               </li>
                               
                             </ul>
@@ -211,19 +248,17 @@ tr:hover {background-color: #B8E2F2;}
                           
                         <!-- main navigation end -->
                         <!-- Mobile Navigation Begin -->
-<div class="in-mobile-nav uk-height-1-1 uk-flex uk-flex-right uk-flex-middle uk-hidden@m" role="navigation" aria-label="Mobile navigation toggle">
-    <button class="uk-button mobile-nav-toggle" href="#mobile-nav-modal" data-uk-toggle aria-label="Open mobile navigation menu" aria-expanded="false" aria-controls="mobile-nav-modal">
+<div class="in-mobile-nav uk-height-1-1 uk-flex uk-flex-right uk-flex-middle uk-hidden@m">
+    <button class="uk-button" href="#mobile-nav-modal" data-uk-toggle aria-label="Open mobile navigation menu">
         <i class="fas fa-bars" aria-hidden="true"></i>
-        <span class="sr-only">Menu</span>
     </button>
 </div>
 
-<div id="mobile-nav-modal" class="uk-modal-full" data-uk-modal role="dialog" aria-modal="true" aria-labelledby="mobile-nav-title">
+<div id="mobile-nav-modal" class="uk-modal-full" data-uk-modal aria-label="Mobile navigation menu">
     <div class="uk-modal-dialog uk-flex uk-flex-center uk-flex-middle" data-uk-height-viewport>
         <button class="uk-modal-close-full uk-close-large fas fa-times" type="button" aria-label="Close mobile navigation menu"></button>
-        <h2 id="mobile-nav-title" class="sr-only">Navigation Menu</h2>
         <div class="uk-width-large uk-padding-large">
-            <ul class="uk-nav-primary uk-nav-parent-icon in-margin-negative-top@s" role="menu">
+            <ul class="uk-nav-primary uk-nav-parent-icon in-margin-negative-top@s" data-uk-nav role="menu">
 
                 <!-- Home -->
                 <li role="none">
@@ -300,7 +335,7 @@ tr:hover {background-color: #B8E2F2;}
                                 <a href="complaint_new.html" role="menuitem" aria-label="Submit or check Complaints">Complaints</a>
                               </li>
                               <li>
-                                <div id="google_translate_nav_desktop"></div>
+                                <div id="google_translate_nav"></div>
                               </li>
 
             </ul>
@@ -332,16 +367,13 @@ tr:hover {background-color: #B8E2F2;}
         <!-- header content end -->
     </header>
 
-    <main id="main-content" role="main" tabindex="-1">
-        <!-- Homepage Main Heading -->
-        <h1 class="sr-only">Standard Securities & Investment Intermediates Ltd. - Trusted Stock Brokerage Services</h1>
-        
+    <main id="maincontent" role="main" tabindex="-1">
         <!-- Slideshow Content Begin -->
         <div class="uk-section uk-padding-remove-vertical uk-margin-bottom" data-uk-scrollspy="cls:uk-animation-fade; delay: 200">
             <div class="uk-container">
-                <div class="in-slideshow uk-position-relative uk-visible-toggle" aria-label="Homepage slideshow">
+                <div class="in-slideshow uk-position-relative uk-visible-toggle" aria-label="Homepage slideshow" tabindex="0">
                     <ul class="uk-slideshow-items" role="region" aria-label="Featured promotions">
-                        <li role="group" aria-roledescription="slide" aria-label="Slide 1 of 2">
+                        <li>
                             <div class="uk-height-1-1 uk-light monee-custom-slideshow" data-uk-grid>
                                 <div class="uk-position-center-left uk-width-1-2@m uk-height-1-1 uk-overlay uk-background-primary">
                                     <img class="uk-position-left in-img-stretch uk-animation-slide-bottom-small"
@@ -351,8 +383,8 @@ tr:hover {background-color: #B8E2F2;}
                                          data-uk-img>
                                     <div class="uk-position-center-left uk-padding uk-text-center uk-text-left@m monee-slide1-text">
                                         <div class="uk-animation-slide-top-small">
-                                            <h2 class="uk-margin-remove-bottom">Setting strong</h2>
-                                            <h3 class="uk-margin-remove-top">foundations</h3>
+                                            <h3 class="uk-margin-remove-bottom">Setting strong</h3>
+                                            <h1 class="uk-margin-remove-top">foundations</h1>
                                             <a href="https://ekyc.standardsec.net:8002" class="uk-button uk-button-primary uk-button-large uk-border-rounded">Open an Account</a>
                                         </div>
                                     </div>
@@ -366,30 +398,24 @@ tr:hover {background-color: #B8E2F2;}
                                 </div>
                             </div>
                         </li>
-                        <li role="group" aria-roledescription="slide" aria-label="Slide 2 of 2">
+                        <li>
                             <div class="uk-height-1-1 uk-light monee-custom-slideshow" data-uk-grid>
                                 <img class="in-img-stretch" src="img/in-lazy.gif" data-src="img/home_slider_2.jpg"
                                      alt="Start investing visual"
                                      width="1100" height="438" data-uk-img>
                                 <div class="uk-position-center uk-width-1-1@m uk-overlay monee-slide2-text">
                                     <div class="uk-text-center uk-animation-slide-top-small">
-                                        <h2 class="uk-margin-remove-bottom">Start investing now</h2>
+                                        <h1 class="uk-margin-remove-bottom">Start investing now</h1>
                                         <p class="uk-text-lead uk-margin-remove-top uk-visible@m">Lightning-fast execution. Exceptional client service.</p>
                                     </div>
                                 </div>
                             </div>
                         </li>
                     </ul>
-                    <!-- Slideshow Navigation with Pause/Play Controls -->
-                    <div class="slideshow-controls">
-                        <button class="slideshow-play-pause" aria-label="Pause slideshow" data-uk-slideshow-item="switch" data-slide-action="toggle">
-                            <span class="play-icon" aria-hidden="true">▶</span>
-                            <span class="pause-icon" aria-hidden="true">⏸</span>
-                            <span class="sr-only">Pause</span>
-                        </button>
+                    <div class="uk-position-bottom-right uk-position-medium">
                         <ul class="uk-dotnav" aria-label="Slideshow navigation">
-                            <li data-uk-slideshow-item="0"><a href="#" aria-label="Go to slide 1: Setting strong foundations">Slide 1</a></li>
-                            <li data-uk-slideshow-item="1"><a href="#" aria-label="Go to slide 2: Start investing now">Slide 2</a></li>
+                            <li data-uk-slideshow-item="0"><a href="#">Slide 1</a></li>
+                            <li data-uk-slideshow-item="1"><a href="#">Slide 2</a></li>
                         </ul>
                     </div>
                 </div>
@@ -408,32 +434,26 @@ tr:hover {background-color: #B8E2F2;}
             Connect with over 5 million investors in the world’s leading social investment network
           </p>
   
-          <form id="open-account-form" class="uk-grid uk-grid-small uk-margin-bottom" data-uk-grid aria-label="Account opening form">
+          <form class="uk-grid uk-grid-small uk-margin-bottom" data-uk-grid aria-label="Account opening form">
             <!-- Full Name -->
             <div class="uk-width-1-1 uk-width-1-5@m">
-              <label class="uk-form-label" for="full-name">Full Name</label>
+              <label class="sr-only" for="full-name">Full Name</label>
               <input class="uk-input" type="text" id="full-name" name="full-name"
-                placeholder="Full name" autocomplete="name" required aria-required="true"
-                aria-describedby="full-name-hint">
-              <span id="full-name-hint" class="uk-form-help">Enter your full legal name</span>
+                placeholder="Full name" autocomplete="name" required aria-required="true">
             </div>
   
             <!-- Email -->
             <div class="uk-width-1-1 uk-width-1-5@m">
-              <label class="uk-form-label" for="email">Email Address</label>
+              <label class="sr-only" for="email">Email Address</label>
               <input class="uk-input" type="email" id="email" name="email"
-                placeholder="Email address" autocomplete="email" required aria-required="true"
-                aria-describedby="email-hint">
-              <span id="email-hint" class="uk-form-help">Enter a valid email address</span>
+                placeholder="Email address" autocomplete="email" required aria-required="true">
             </div>
   
             <!-- Phone -->
             <div class="uk-width-1-1 uk-width-1-5@m">
-              <label class="uk-form-label" for="phone">Phone Number</label>
+              <label class="sr-only" for="phone">Phone Number</label>
               <input class="uk-input" type="tel" id="phone" name="phone"
-                placeholder="Phone number" autocomplete="tel" required aria-required="true"
-                aria-describedby="phone-hint">
-              <span id="phone-hint" class="uk-form-help">Enter your phone number with country code</span>
+                placeholder="Phone number" autocomplete="tel" required aria-required="true">
             </div>
   
             <!-- Submit Button -->
@@ -444,8 +464,6 @@ tr:hover {background-color: #B8E2F2;}
               </button>
             </div>
           </form>
-          <!-- Form Error/Success Messages -->
-          <div id="form-status" aria-live="polite" class="sr-only"></div>
         </div>
       </div>
     </div>
@@ -979,15 +997,15 @@ tr:hover {background-color: #B8E2F2;}
                <div>
                 <h4>Quick Links</h4>
                 <ul class="uk-list uk-link-text">
-                    <li><a href="accessibility.html" aria-label="Read Accessibility Statement">Accessibility</a></li>
+                    <li><a href="accessibility.html" area-label="Read Accessibility Statement">Accessibility</a></li>
                   <li><a href="https://www.sebi.gov.in/" aria-label="Visit SEBI official website">SEBI</a></li>
                   <li><a href="https://www.nseindia.com/" aria-label="Visit NSE official website">NSE</a></li>
                   <li><a href="https://www.bseindia.com/" aria-label="Visit BSE official website">BSE</a></li>
                   <li><a href="https://www.cdslindia.com/" aria-label="Visit CDSL official website">CDSL</a></li>
                   <li><a href="https://www.mcxindia.com" aria-label="Visit MCX India official website">MCX India</a></li>
                   <li><a href="https://scores.sebi.gov.in" aria-label="Visit SEBI SCORES 2.0 grievance portal">SCORES 2.0</a></li>
-                   <li><a href="pdf1/SEBI-Master-Circular-for-Online-Resolution-of-Disputes.pdf" aria-label="Download Smart ODR Circular">Smart-ODR Circular</li>
-                   <li><a href="smart_ODR.html" aria-label=" Visit Smart ODR login Page">Smart ODR Login</a></li>  
+                   <li><a href="pdf1/SEBI-Master-Circular-for-Online-Resolution-of-Disputes.pdf" area-label="Download Smart ODR Circular">Smart-ODR Circular</li>
+                   <li><a href="smart_ODR.html" area-label=" Visit Smart ODR login Page">Smart ODR Login</a></li>  
                 </ul>
               </div>
       
@@ -1213,7 +1231,7 @@ MSEI (SEBI REGN. NO)-INE260805437;SEBI REGISTRATION NO. CDSL :- IN-DP-386-2018 (
     
     .fab:hover, .fab:focus {
     background-color: #0056b3;
-    outline: 3px solid #FFD700; outline-offset: 2px;
+    outline: 2px solid white;
     outline-offset: 2px;
     }
     
@@ -1242,7 +1260,7 @@ MSEI (SEBI REGN. NO)-INE260805437;SEBI REGISTRATION NO. CDSL :- IN-DP-386-2018 (
     .fab-menu button:hover,
     .fab-menu button:focus {
     background-color: #0056b3;
-    outline: 3px solid #FFD700; outline-offset: 2px;
+    outline: 2px solid white;
     outline-offset: 2px;
     }
     
@@ -1282,7 +1300,7 @@ MSEI (SEBI REGN. NO)-INE260805437;SEBI REGISTRATION NO. CDSL :- IN-DP-386-2018 (
     
     .accessibility-panel button:focus,
     .accessibility-panel a:focus {
-    outline: 3px solid #FFD700; outline-offset: 2px;
+    outline: 3px solid yellow; /* WCAG focus visible */
     }
     
     /* Dark mode */
@@ -1366,81 +1384,17 @@ MSEI (SEBI REGN. NO)-INE260805437;SEBI REGISTRATION NO. CDSL :- IN-DP-386-2018 (
     </script>
 
     <!-- Google Translate Script -->
-    <div id="google_translate_element" style="display:none;" aria-hidden="true"></div>
-    <script type="text/javascript">
-      function googleTranslateElementInit() {
-        new google.translate.TranslateElement(
-          {pageLanguage: 'en', includedLanguages: 'hi,en', layout: google.translate.TranslateElement.InlineLayout.SIMPLE},
-          'google_translate_element'
-        );
-      }
-    </script>
-    <script type="text/javascript" src="//translate.google.com/translate_a/element.js?cb=googleTranslateElementInit"></script>
+<div id="google_translate_element" style="display:none;"></div>
+<script type="text/javascript">
+  function googleTranslateElementInit() {
+    new google.translate.TranslateElement(
+      {pageLanguage: 'en', includedLanguages: 'hi,en', layout: google.translate.TranslateElement.InlineLayout.SIMPLE},
+      'google_translate_element'
+    );
+  }
+</script>
+<script type="text/javascript" src="//translate.google.com/translate_a/element.js?cb=googleTranslateElementInit"></script>
 
-    <!-- Language Toggle Buttons for Accessibility -->
-    <script>
-    document.addEventListener('DOMContentLoaded', function() {
-        // Add language toggle buttons after translation loads
-        var checkTranslation = setInterval(function() {
-            var translateElement = document.getElementById('google_translate_element');
-            if (translateElement && translateElement.querySelector('.goog-te-gadget')) {
-                clearInterval(checkTranslation);
-                
-                // Hide original Google Translate widget
-                var gadget = translateElement.querySelector('.goog-te-gadget');
-                gadget.style.display = 'none';
-                
-                // Create accessible language toggle
-                var langToggle = document.createElement('div');
-                langToggle.className = 'language-toggle-wrapper';
-                langToggle.setAttribute('role', 'group');
-                langToggle.setAttribute('aria-label', 'Language selection');
-                langToggle.innerHTML = 
-                    '<button type="button" class="lang-toggle-btn active" data-lang="en" aria-pressed="true" aria-label="Switch to English">EN</button>' +
-                    '<button type="button" class="lang-toggle-btn" data-lang="hi" aria-pressed="false" aria-label="Switch to Hindi">हिं</button>';
-                
-                translateElement.appendChild(langToggle);
-                
-                // Add click handlers
-                langToggle.querySelectorAll('.lang-toggle-btn').forEach(function(btn) {
-                    btn.addEventListener('click', function() {
-                        var lang = this.getAttribute('data-lang');
-                        var select = gadget.querySelector('.goog-te-combo');
-                        if (select) {
-                            select.value = lang;
-                            select.dispatchEvent(new Event('change'));
-                            
-                            // Update button states
-                            langToggle.querySelectorAll('.lang-toggle-btn').forEach(function(b) {
-                                b.classList.remove('active');
-                                b.setAttribute('aria-pressed', 'false');
-                            });
-                            this.classList.add('active');
-                            this.setAttribute('aria-pressed', 'true');
-                            
-                            // Update page language
-                            document.documentElement.lang = lang;
-                            
-                            // Announce change to screen readers
-                            var announcer = document.getElementById('sr-announcer');
-                            if (announcer) {
-                                announcer.textContent = 'Language changed to ' + (lang === 'hi' ? 'Hindi' : 'English');
-                            }
-                        }
-                    });
-                });
-            }
-        }, 500);
-    });
-    </script>
-
-    <!-- Reduced Motion Support -->
-    <script>
-    if (window.matchMedia('(prefers-reduced-motion: reduce)').matches) {
-        document.documentElement.style.setProperty('--animation-duration', '0.01ms');
-        document.documentElement.style.setProperty('--transition-duration', '0.01ms');
-    }
-    </script>
 
 </body>
 
