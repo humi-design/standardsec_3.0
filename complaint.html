@@ -4,6 +4,12 @@
     <title>Complaint Form</title>
 </head>
 <body>
+    <!-- Skip Navigation Link -->
+    <a href="#main-content" class="skip-link">Skip to main content</a>
+
+    <!-- Screen Reader Announcements -->
+    <div id="sr-announcer" aria-live="polite" aria-atomic="true" class="sr-only"></div>
+
 <h2>Register a Complaint</h2>
 <form method="post" action="complaint.php">
     <label for="customer_name">Customer Name:</label><br>
@@ -18,5 +24,13 @@
     <input type="submit" value="Submit">
 </form>
 
+
+    <!-- Reduced Motion Support -->
+    <script>
+    if (window.matchMedia('(prefers-reduced-motion: reduce)').matches) {
+        document.documentElement.style.setProperty('--animation-duration', '0.01ms');
+        document.documentElement.style.setProperty('--transition-duration', '0.01ms');
+    }
+    </script>
 </body>
 </html>

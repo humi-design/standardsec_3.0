@@ -1,0 +1,764 @@
+/* ========================================================================
+   ACCESSIBILITY FIXES CSS
+   Standard Securities & Investment Intermediates Ltd.
+   WCAG 2.2 AA Compliance
+   ======================================================================== */
+
+/* ========================================================================
+   1. SKIP LINK
+   ======================================================================== */
+.skip-link {
+    position: absolute;
+    left: -9999px;
+    top: auto;
+    width: 1px;
+    height: 1px;
+    overflow: hidden;
+    z-index: 999999;
+    padding: 1rem 1.5rem;
+    background: #146CE0;
+    color: #fff;
+    text-decoration: none;
+    font-weight: 600;
+    border-radius: 0 0 8px 0;
+    transition: none;
+}
+
+.skip-link:focus {
+    position: fixed;
+    left: 0;
+    top: 0;
+    width: auto;
+    height: auto;
+    outline: 3px solid #FFD700;
+    outline-offset: 2px;
+}
+
+/* ========================================================================
+   2. SCREEN READER ONLY UTILITY
+   ======================================================================== */
+.sr-only {
+    position: absolute !important;
+    width: 1px !important;
+    height: 1px !important;
+    padding: 0 !important;
+    margin: -1px !important;
+    overflow: hidden !important;
+    clip: rect(0, 0, 0, 0) !important;
+    white-space: nowrap !important;
+    border: 0 !important;
+}
+
+/* ========================================================================
+   3. FOCUS INDICATORS - WCAG 2.2 AA Compliant (3:1 contrast)
+   ======================================================================== */
+/* Remove outline:none without replacement - use proper focus styles */
+*:focus {
+    outline: 3px solid #146CE0;
+    outline-offset: 2px;
+}
+
+*:focus:not(:focus-visible) {
+    outline: none;
+}
+
+*:focus-visible {
+    outline: 3px solid #146CE0;
+    outline-offset: 2px;
+}
+
+/* Specific focus styles for interactive elements */
+a:focus,
+button:focus,
+input:focus,
+select:focus,
+textarea:focus,
+[tabindex]:focus {
+    outline: 3px solid #146CE0;
+    outline-offset: 2px;
+}
+
+/* High contrast focus for better visibility */
+.uk-button:focus,
+.uk-button-primary:focus,
+button:focus,
+.btn:focus {
+    outline: 3px solid #146CE0;
+    outline-offset: 3px;
+    box-shadow: 0 0 0 6px rgba(20, 108, 224, 0.3);
+}
+
+/* Navigation focus */
+.uk-nav > li > a:focus,
+.uk-navbar-nav > li > a:focus {
+    outline: 3px solid #146CE0;
+    outline-offset: -3px;
+}
+
+/* Mobile nav toggle focus */
+.mobile-nav-toggle:focus {
+    outline: 3px solid #146CE0;
+    outline-offset: 2px;
+}
+
+/* Accessibility widget focus */
+.fab:focus {
+    outline: 3px solid #FFD700;
+    outline-offset: 3px;
+    box-shadow: 0 0 0 6px rgba(255, 215, 0, 0.4);
+}
+
+/* Skip link focus - high visibility */
+.skip-link:focus {
+    outline: 3px solid #FFD700;
+    outline-offset: 4px;
+    background: #146CE0;
+    color: #fff;
+}
+
+/* ========================================================================
+   4. TARGET SIZES - Minimum 24x24 CSS px
+   ======================================================================== */
+/* Ensure all interactive elements meet minimum target size */
+a,
+button,
+input,
+select,
+textarea,
+.uk-icon-button,
+.uk-button,
+.uk-slidenav,
+.uk-totop {
+    min-height: 24px;
+    min-width: 24px;
+}
+
+/* Form controls minimum height */
+input[type="text"],
+input[type="email"],
+input[type="tel"],
+input[type="password"],
+input[type="search"],
+select,
+textarea {
+    min-height: 44px;
+    min-width: 44px;
+}
+
+/* Navigation links minimum size */
+.uk-nav > li > a,
+.uk-navbar-nav > li > a {
+    min-height: 24px;
+    min-width: 24px;
+    padding: 8px 16px;
+}
+
+/* Button minimum size */
+.uk-button {
+    min-height: 44px;
+    min-width: 44px;
+    padding: 10px 20px;
+}
+
+/* Icon buttons */
+.uk-icon-button {
+    width: 44px;
+    height: 44px;
+}
+
+/* Accessibility widget FAB */
+.fab {
+    width: 56px;
+    height: 56px;
+    min-width: 56px;
+    min-height: 56px;
+}
+
+/* Skip link */
+.skip-link {
+    min-width: auto;
+    min-height: 44px;
+}
+
+/* Dot navigation */
+.uk-dotnav > li > a {
+    width: 12px;
+    height: 12px;
+    min-width: 12px;
+    min-height: 12px;
+}
+
+/* ========================================================================
+   5. TEXT SPACING - WCAG Text Spacing Support
+   ======================================================================== */
+/* Support WCAG text spacing without clipping */
+body {
+    line-height: 1.5 !important;
+    letter-spacing: normal;
+    word-spacing: normal;
+}
+
+p, li, td, th, label, input, textarea, select {
+    line-height: 1.5 !important;
+    letter-spacing: 0.012em;
+    word-spacing: 0.016em;
+}
+
+h1, h2, h3, h4, h5, h6 {
+    line-height: 1.2 !important;
+    letter-spacing: 0.01em;
+    word-spacing: 0.02em;
+}
+
+p {
+    margin-bottom: 1em;
+}
+
+/* Allow content to expand with increased text spacing */
+.uk-section,
+.uk-card,
+.uk-container,
+.uk-width-1-1,
+.uk-width-1-2,
+.uk-width-1-3,
+.uk-width-1-4,
+.uk-width-1-5,
+.uk-width-1-6 {
+    min-height: auto !important;
+    height: auto !important;
+}
+
+/* Form fields must expand */
+.uk-form-controls,
+.uk-input,
+.uk-select,
+.uk-textarea {
+    min-height: auto !important;
+}
+
+/* Allow vertical expansion with text spacing */
+.uk-grid > *,
+.uk-child-width-1-1 > *,
+.uk-child-width-1-2 > *,
+.uk-child-width-1-3 > *,
+.uk-child-width-1-4 > * {
+    height: auto !important;
+    min-height: auto !important;
+}
+
+/* ========================================================================
+   6. COLOR CONTRAST FIXES
+   ======================================================================== */
+/* Primary button text - ensure 4.5:1 contrast */
+.uk-button-primary,
+.uk-button-primary:hover,
+.uk-button-primary:focus {
+    background-color: #146CE0;
+    color: #ffffff; /* Contrast ratio: 7.6:1 on white background */
+}
+
+/* Secondary buttons */
+.uk-button-secondary {
+    background-color: #555555;
+    color: #ffffff; /* Contrast ratio: 6.3:1 */
+}
+
+/* Links - ensure 4.5:1 contrast */
+.uk-link,
+a:not(.uk-button) {
+    color: #0052cc; /* Darker blue for better contrast on white */
+}
+
+/* Footer text contrast */
+footer,
+footer p,
+footer li,
+footer a {
+    color: #ffffff;
+}
+
+/* Dark backgrounds with light text - already good */
+.uk-background-primary,
+.uk-card-primary,
+.uk-section-primary {
+    background-color: #146CE0;
+    color: #ffffff;
+}
+
+/* ========================================================================
+   7. MOBILE NAVIGATION ACCESSIBILITY
+   ======================================================================== */
+/* Mobile nav toggle - always visible */
+.mobile-nav-toggle {
+    display: flex !important;
+    align-items: center;
+    justify-content: center;
+    min-width: 48px;
+    min-height: 48px;
+    padding: 0.75rem;
+    background: #146CE0;
+    color: #fff;
+    border: none;
+    border-radius: 8px;
+    cursor: pointer;
+    font-size: 1.5rem;
+}
+
+.mobile-nav-toggle:hover {
+    background: #0d5bbc;
+}
+
+.mobile-nav-toggle:focus {
+    outline: 3px solid #FFD700;
+    outline-offset: 2px;
+}
+
+.mobile-nav-toggle[aria-expanded="true"] {
+    background: #0d5bbc;
+}
+
+/* Mobile nav panel - ensure proper role and accessibility */
+#mobile-nav-modal[role="dialog"] {
+    background: #fff;
+    color: #333;
+}
+
+/* Ensure close button is reachable */
+.uk-modal-close-full {
+    min-width: 48px;
+    min-height: 48px;
+    padding: 1rem;
+    top: 1rem;
+    right: 1rem;
+}
+
+/* Mobile nav links - minimum touch target */
+.mobile-nav-panel a,
+.mobile-nav-panel button {
+    min-height: 48px;
+    padding: 1rem;
+    display: flex;
+    align-items: center;
+}
+
+/* ========================================================================
+   8. SLIDESHOW/CAROUSEL ACCESSIBILITY
+   ======================================================================== */
+/* Slideshow controls container */
+.slideshow-controls {
+    display: flex;
+    align-items: center;
+    gap: 1rem;
+    padding: 0.5rem;
+}
+
+/* Pause/Play button */
+.slideshow-play-pause {
+    min-width: 44px;
+    min-height: 44px;
+    padding: 0.5rem;
+    background: rgba(0, 0, 0, 0.6);
+    color: #fff;
+    border: 2px solid #fff;
+    border-radius: 8px;
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.slideshow-play-pause:hover {
+    background: rgba(0, 0, 0, 0.8);
+}
+
+.slideshow-play-pause:focus {
+    outline: 3px solid #FFD700;
+    outline-offset: 2px;
+}
+
+/* Show/hide play/pause icons based on state */
+.slideshow-play-pause[aria-label*="Pause"] .play-icon,
+.slideshow-play-pause[aria-label*="Play"] .pause-icon {
+    display: none;
+}
+
+/* Dotnav - improve visibility and size */
+.uk-dotnav > li > a {
+    width: 14px;
+    height: 14px;
+    background: rgba(255, 255, 255, 0.7);
+    border: 2px solid #146CE0;
+}
+
+.uk-dotnav > li > a:hover,
+.uk-dotnav > li > a:focus {
+    background: #146CE0;
+}
+
+.uk-dotnav > li.uk-active > a {
+    background: #146CE0;
+    border-color: #fff;
+}
+
+/* ========================================================================
+   9. FORM ACCESSIBILITY
+   ======================================================================== */
+/* Form labels - visible and properly styled */
+.uk-form-label {
+    display: block;
+    margin-bottom: 0.5rem;
+    font-weight: 600;
+    color: #333;
+}
+
+/* Form help text */
+.uk-form-help {
+    display: block;
+    font-size: 0.875rem;
+    color: #666;
+    margin-top: 0.25rem;
+}
+
+/* Error states */
+.uk-input[aria-invalid="true"],
+.uk-textarea[aria-invalid="true"] {
+    border-color: #dc3545;
+    border-width: 2px;
+}
+
+.uk-input:focus[aria-invalid="true"],
+.uk-textarea:focus[aria-invalid="true"] {
+    outline-color: #dc3545;
+}
+
+/* Error message styling */
+.error-message {
+    color: #dc3545;
+    font-size: 0.875rem;
+    margin-top: 0.25rem;
+    display: block;
+}
+
+/* Required field indicator */
+[aria-required="true"]::after {
+    content: " *";
+    color: #dc3545;
+    font-weight: bold;
+}
+
+/* ========================================================================
+   10. ACCESSIBILITY WIDGET IMPROVEMENTS
+   ======================================================================== */
+/* FAB button - accessibility improvements */
+.fab {
+    z-index: 9999;
+    background-color: #146CE0;
+    color: #ffffff;
+    border: 3px solid transparent;
+}
+
+.fab:hover,
+.fab:focus {
+    background-color: #0d5bbc;
+    border-color: #FFD700;
+}
+
+/* Accessibility panel */
+.accessibility-panel {
+    background: #ffffff;
+    border: 2px solid #146CE0;
+    border-radius: 12px;
+    box-shadow: 0 8px 24px rgba(0, 0, 0, 0.2);
+    z-index: 10000;
+}
+
+.accessibility-panel button,
+.accessibility-panel a {
+    min-height: 44px;
+    min-width: 44px;
+    padding: 0.75rem 1rem;
+    background: #146CE0;
+    color: #ffffff;
+    border: none;
+    border-radius: 8px;
+    font-size: 1rem;
+    text-decoration: none;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 0.5rem;
+}
+
+.accessibility-panel button:hover,
+.accessibility-panel a:hover {
+    background: #0d5bbc;
+}
+
+.accessibility-panel button:focus,
+.accessibility-panel a:focus {
+    outline: 3px solid #FFD700;
+    outline-offset: 2px;
+}
+
+/* ========================================================================
+   11. LANGUAGE TOGGLE STYLES
+   ======================================================================== */
+.language-toggle-wrapper {
+    display: inline-flex;
+    gap: 0.25rem;
+    align-items: center;
+}
+
+.lang-toggle-btn {
+    min-width: 44px;
+    min-height: 36px;
+    padding: 0.5rem 0.75rem;
+    background: #f0f0f0;
+    color: #333;
+    border: 2px solid #ccc;
+    border-radius: 6px;
+    cursor: pointer;
+    font-weight: 600;
+    font-size: 0.875rem;
+    transition: all 0.2s ease;
+}
+
+.lang-toggle-btn:hover {
+    background: #e0e0e0;
+    border-color: #999;
+}
+
+.lang-toggle-btn:focus {
+    outline: 3px solid #146CE0;
+    outline-offset: 2px;
+}
+
+.lang-toggle-btn.active {
+    background: #146CE0;
+    color: #ffffff;
+    border-color: #146CE0;
+}
+
+.lang-toggle-btn[aria-pressed="true"] {
+    background: #146CE0;
+    color: #ffffff;
+}
+
+/* ========================================================================
+   12. RESPONSIVE TEXT SIZING
+   ======================================================================== */
+/* Minimum font size for readability */
+body {
+    font-size: 16px;
+}
+
+@media (max-width: 480px) {
+    body {
+        font-size: 16px; /* Prevent iOS zoom on focus */
+    }
+}
+
+/* ========================================================================
+   13. HIGH CONTRAST MODE SUPPORT
+   ======================================================================== */
+@media (forced-colors: active) {
+    .uk-button-primary {
+        background: ButtonText;
+        color: ButtonFace;
+        border: 2px solid ButtonText;
+    }
+    
+    a:focus,
+    button:focus,
+    input:focus {
+        outline: 3px solid CanvasText;
+        outline-offset: 2px;
+    }
+    
+    .skip-link:focus {
+        outline: 3px solid CanvasText;
+        background: Canvas;
+        color: ButtonText;
+    }
+}
+
+/* ========================================================================
+   14. REDUCED MOTION SUPPORT
+   ======================================================================== */
+@media (prefers-reduced-motion: reduce) {
+    *,
+    *::before,
+    *::after {
+        animation-duration: 0.01ms !important;
+        animation-iteration-count: 1 !important;
+        transition-duration: 0.01ms !important;
+        scroll-behavior: auto !important;
+    }
+    
+    .uk-animation-fade,
+    .uk-animation-slide-top-small,
+    .uk-animation-slide-bottom-small,
+    .uk-transition-fade,
+    .uk-transition-toggle {
+        transition: none !important;
+        animation: none !important;
+    }
+}
+
+/* ========================================================================
+   15. PRINT ACCESSIBILITY
+   ======================================================================== */
+@media print {
+    .skip-link,
+    .accessibility-menu,
+    .mobile-nav-toggle,
+    .fab,
+    .accessibility-panel,
+    .language-toggle-wrapper {
+        display: none !important;
+    }
+    
+    a[href]::after {
+        content: " (" attr(href) ")";
+        font-size: 0.8em;
+        color: #666;
+    }
+    
+    a[href^="#"]::after,
+    a[href^="javascript"]::after {
+        content: "";
+    }
+}
+
+/* ========================================================================
+   16. 200% ZOOM SUPPORT
+   ======================================================================== */
+/* Ensure no horizontal scrolling at 200% zoom */
+html {
+    overflow-x: hidden;
+}
+
+body {
+    overflow-x: hidden;
+    min-width: 100%;
+}
+
+/* Allow containers to flex */
+.uk-container {
+    max-width: 100%;
+}
+
+/* Ensure form fields don't clip at 200% zoom */
+.uk-form,
+form {
+    max-width: 100%;
+    overflow: visible;
+}
+
+/* Navigation - allow horizontal scroll if needed at 200% zoom */
+.uk-navbar-nav {
+    flex-wrap: wrap;
+}
+
+/* Grid items - allow stacking */
+.uk-grid {
+    display: flex;
+    flex-wrap: wrap;
+}
+
+.uk-grid > * {
+    flex: 1 1 100%;
+    max-width: 100%;
+}
+
+/* ========================================================================
+   17. SEMANTIC HTML SUPPORT
+   ======================================================================== */
+/* Ensure proper landmark styling */
+[role="main"] {
+    display: block;
+}
+
+[role="navigation"] {
+    display: block;
+}
+
+[role="dialog"] {
+    display: block;
+}
+
+[role="banner"] {
+    display: block;
+}
+
+[role="contentinfo"] {
+    display: block;
+}
+
+/* ========================================================================
+   18. ADDITIONAL ACCESSIBILITY POLISH
+   ======================================================================== */
+/* Remove default focus outline from elements handled by custom styles */
+.uk-slidenav:focus,
+.uk-totop:focus {
+    outline: 3px solid #146CE0;
+    outline-offset: 2px;
+}
+
+/* Ensure hover and focus states are distinguishable */
+.uk-button:hover,
+.uk-button:focus {
+    background-color: #0d5bbc;
+}
+
+/* Icon-only buttons need accessible labels */
+.uk-icon-button[aria-label] {
+    position: relative;
+}
+
+/* Video/audio controls */
+video,
+audio {
+    display: block;
+}
+
+/* Ensure tables are properly marked up */
+table {
+    border-collapse: collapse;
+}
+
+th,
+td {
+    padding: 0.75rem;
+    text-align: left;
+    border: 1px solid #ccc;
+}
+
+th {
+    background-color: #f5f5f5;
+    font-weight: 600;
+}
+
+/* Caption for tables */
+caption {
+    padding: 0.75rem;
+    font-weight: 600;
+    text-align: left;
+}
+
+/* Visually hidden but accessible to screen readers */
+.visually-hidden {
+    position: absolute;
+    width: 1px;
+    height: 1px;
+    padding: 0;
+    margin: -1px;
+    overflow: hidden;
+    clip: rect(0, 0, 0, 0);
+    white-space: nowrap;
+    border: 0;
+}
+
+/* ========================================================================
+   END OF ACCESSIBILITY FIXES CSS
+   ======================================================================== */

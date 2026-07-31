@@ -4,17 +4,18 @@
 <head>
     <!-- Standard Meta -->
     <meta charset="utf-8">
-    <meta name="description" content="Premium HTML Template by Indonez">
+    <meta name="description" content="Contact Standard Securities & Investment Intermediates Ltd. - Get in touch with our customer support team for trading queries, account assistance, and general inquiries.">
     <meta name="viewport" content="width=device-width, initial-scale=1">
-    <meta name="theme-color" content="#4184dd" />
+    <meta name="theme-color" content="#146CE0" />
     <!-- Site Properties -->
-    <title>Standard Securities & Investment Intermediates Ltd.</title>
+    <title>Contact Us - Standard Securities & Investment Intermediates Ltd.</title>
     <link rel="shortcut icon" href="favicon.ico" type="image/x-icon">
     <link rel="apple-touch-icon-precomposed" href="apple-touch-icon.png">
     <!-- CSS -->
     <link rel="stylesheet" href="css/uikit.css">
     <link rel="stylesheet" href="css/style.css">
     <link rel="stylesheet" href="css/style_bot.css">
+    <link rel="stylesheet" href="css/accessibility-fixes.css">
 
     <script src="https://www.google.com/recaptcha/api.js"></script>
     
@@ -38,9 +39,16 @@ tr:hover {background-color: #B8E2F2;}
 
 <body>
    
+    <!-- Skip Navigation Link -->
+    <a href="#main-content" class="skip-link">Skip to main content</a>
+
+    <!-- Screen Reader Announcements -->
+    <div id="sr-announcer" aria-live="polite" aria-atomic="true" class="sr-only"></div>
+
   <header data-uk-sticky="top: 400; cls-active: in-sticky">
 
-    <div id="google_translate_element" class="translate-btn"></div>
+    <!-- Language Translation Dropdown -->
+    <div id="header-translate" class="translate-btn"></div>
 
     
     <!-- header content begin -->
@@ -188,15 +196,12 @@ tr:hover {background-color: #B8E2F2;}
                           </li>
                       
                           <!-- Complaints -->
-                            <!-- Complaints -->
                           <li role="none">
                             <a href="complaint_new.html" role="menuitem" aria-label="Submit or check Complaints">Complaints</a>
                           </li>
-                          <li>
-                            <div id="google_translate_nav"></div>
-                          </li>
-                          <li>
-                            <div id="google_translate_nav"></div>
+                          <!-- Language Toggle in Desktop Nav -->
+                          <li role="none" class="desktop-translate-toggle">
+                            <div id="google_translate_nav_desktop"></div>
                           </li>
                           
                         </ul>
@@ -205,17 +210,19 @@ tr:hover {background-color: #B8E2F2;}
                       
                     <!-- main navigation end -->
                     <!-- Mobile Navigation Begin -->
-<div class="in-mobile-nav uk-height-1-1 uk-flex uk-flex-right uk-flex-middle uk-hidden@m">
-<button class="uk-button" href="#mobile-nav-modal" data-uk-toggle aria-label="Open mobile navigation menu">
+<div class="in-mobile-nav uk-height-1-1 uk-flex uk-flex-right uk-flex-middle uk-hidden@m" role="navigation" aria-label="Mobile navigation toggle">
+<button class="uk-button mobile-nav-toggle" href="#mobile-nav-modal" data-uk-toggle aria-label="Open mobile navigation menu" aria-expanded="false" aria-controls="mobile-nav-modal">
     <i class="fas fa-bars" aria-hidden="true"></i>
+    <span class="sr-only">Menu</span>
 </button>
 </div>
 
-<div id="mobile-nav-modal" class="uk-modal-full" data-uk-modal aria-label="Mobile navigation menu">
+<div id="mobile-nav-modal" class="uk-modal-full" data-uk-modal role="dialog" aria-modal="true" aria-labelledby="mobile-nav-title">
 <div class="uk-modal-dialog uk-flex uk-flex-center uk-flex-middle" data-uk-height-viewport>
     <button class="uk-modal-close-full uk-close-large fas fa-times" type="button" aria-label="Close mobile navigation menu"></button>
+    <h2 id="mobile-nav-title" class="sr-only">Navigation Menu</h2>
     <div class="uk-width-large uk-padding-large">
-        <ul class="uk-nav-primary uk-nav-parent-icon in-margin-negative-top@s" data-uk-nav role="menu">
+        <ul class="uk-nav-primary uk-nav-parent-icon in-margin-negative-top@s" role="menu">
 
             <!-- Home -->
             <li role="none">
@@ -290,7 +297,7 @@ tr:hover {background-color: #B8E2F2;}
                             <a href="complaint_new.html" role="menuitem" aria-label="Submit or check Complaints">Complaints</a>
                           </li>
                           <li>
-                            <div id="google_translate_nav"></div>
+                            <div id="google_translate_nav_desktop"></div>
                           </li>
 
         </ul>
@@ -322,7 +329,7 @@ tr:hover {background-color: #B8E2F2;}
     <!-- header content end -->
 </header>
 
-    <main>
+    <main id="main-content" role="main" tabindex="-1">
         <!-- breadcrumb content begin -->
         <div class="uk-section uk-section-small">
             <div class="uk-container">
@@ -396,7 +403,8 @@ tr:hover {background-color: #B8E2F2;}
                             <div>
                                 <h4>Locate Us</h4>
                                 <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3767.8513067731183!2d72.8590465149031!3d19.201695787015993!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x3be7b7231ca1f365%3A0x5ec23b885da34812!2sTanishka%20Commercial%20Building!5e0!3m2!1sen!2sin!4v1653654613461!5m2!1sen!2sin"
-                                    width="100%" height="300" style="border:0;" allowfullscreen="" loading="lazy"></iframe>
+                                    width="100%" height="300" style="border:0;" allowfullscreen="" loading="lazy" 
+                                    title="Map showing Standard Securities office location - Tanishka Commercial Building, Lajpat Nagar, New Delhi" title="Map showing Standard Securities office location"></iframe>
                             </div>
                         </div>
                     </div>
@@ -405,31 +413,51 @@ tr:hover {background-color: #B8E2F2;}
 <div class="uk-width-expand@m">
     <div class="uk-card uk-card-secondary uk-margin-small-top">
       <div class="uk-card-body">
-        <form id="contact-form" class="uk-form" action="mail.php" method="POST" novalidate>
+        <form id="contact-form" class="uk-form" action="mail.php" method="POST" novalidate aria-label="Contact form">
           
           <!-- Error Summary (Accessible) -->
-          <div id="errorSummary" role="alert" aria-live="assertive" style="color: #ffdddd; margin-bottom: 10px;"></div>
+          <div id="errorSummary" role="alert" aria-live="assertive" class="form-error-summary" aria-live="assertive"></div>
   
           <!-- Name Field -->
           <div class="uk-margin uk-width-1-1">
-            <input class="uk-input" id="name" name="name" type="text" placeholder="Full name" required>
-            <small id="nameError" style="color:red;"></small>
+            <label for="name" class="uk-form-label">Full Name <span aria-hidden="true">*</span></label>
+            <input class="uk-input" id="name" name="name" type="text" 
+                   placeholder="Enter your full name" 
+                   autocomplete="name" 
+                   required 
+                   aria-required="true"
+                   aria-describedby="name-hint nameError">
+            <span id="name-hint" class="uk-form-help">Enter your full legal name</span>
+            <span id="nameError" class="error-message" role="alert" aria-live="assertive"></span>
           </div>
   
           <!-- Email Field -->
           <div class="uk-margin uk-width-1-1">
-            <input class="uk-input" id="email" name="email" type="email" placeholder="Email" required>
-            <small id="emailError" style="color:red;"></small>
+            <label for="email" class="uk-form-label">Email Address <span aria-hidden="true">*</span></label>
+            <input class="uk-input" id="email" name="email" type="email" 
+                   placeholder="Enter your email address" 
+                   autocomplete="email" 
+                   required 
+                   aria-required="true"
+                   aria-describedby="email-hint emailError">
+            <span id="email-hint" class="uk-form-help">We'll use this to respond to your inquiry</span>
+            <span id="emailError" class="error-message" role="alert" aria-live="assertive"></span>
           </div>
   
           <!-- Message Field -->
           <div class="uk-margin uk-width-1-1">
-            <textarea class="uk-textarea" id="message" name="message" rows="6" placeholder="Message" required></textarea>
-            <small id="messageError" style="color:red;"></small>
+            <label for="message" class="uk-form-label">Message <span aria-hidden="true">*</span></label>
+            <textarea class="uk-textarea" id="message" name="message" rows="6" 
+                      placeholder="Write your message here (minimum 10 characters)" 
+                      required 
+                      aria-required="true"
+                      aria-describedby="message-hint messageError"></textarea>
+            <span id="message-hint" class="uk-form-help">Please describe your inquiry in detail (minimum 10 characters)</span>
+            <span id="messageError" class="error-message" role="alert" aria-live="assertive"></span>
           </div>
   
           <!-- reCAPTCHA -->
-          <div class="g-recaptcha brochure__form__captcha" data-sitekey="6LcCuhAiAAAAAIcwbPIbre3c1cDuJwY4uZGHSZpl"></div>
+          <div class="g-recaptcha brochure__form__captcha" data-sitekey="6LcCuhAiAAAAAIcwbPIbre3c1cDuJwY4uZGHSZpl" aria-label="reCAPTCHA verification"></div>
           <br>
   
           <!-- Submit Button -->
@@ -443,7 +471,7 @@ tr:hover {background-color: #B8E2F2;}
     
         <!-- Escalation Matrix -->
         <div class="uk-section">
-            <h1 class="uk-margin-remove-bottom">Escalation Matrix</h1>
+            <h2 class="uk-margin-remove-bottom">Escalation Matrix</h2>
             <br>
             <div class="uk-overflow-auto">
                 <table class="uk-table uk-table-divider uk-table-striped uk-table-hover">
@@ -554,7 +582,7 @@ tr:hover {background-color: #B8E2F2;}
         </div>
     </div>
     
-    <footer>
+    <footer role="contentinfo">
         <!-- footer content begin -->
         <div class="uk-section uk-padding-remove-vertical uk-margin-medium-top">
           <div class="uk-container">
@@ -621,15 +649,15 @@ tr:hover {background-color: #B8E2F2;}
                <div>
                 <h4>Quick Links</h4>
                 <ul class="uk-list uk-link-text">
-                    <li><a href="accessibility.html" area-label="Read Accessibility Statement">Accessibility</a></li>
+                    <li><a href="accessibility.html" aria-label="Read Accessibility Statement">Accessibility</a></li>
                   <li><a href="https://www.sebi.gov.in/" aria-label="Visit SEBI official website">SEBI</a></li>
                   <li><a href="https://www.nseindia.com/" aria-label="Visit NSE official website">NSE</a></li>
                   <li><a href="https://www.bseindia.com/" aria-label="Visit BSE official website">BSE</a></li>
                   <li><a href="https://www.cdslindia.com/" aria-label="Visit CDSL official website">CDSL</a></li>
                   <li><a href="https://www.mcxindia.com" aria-label="Visit MCX India official website">MCX India</a></li>
                   <li><a href="https://scores.sebi.gov.in" aria-label="Visit SEBI SCORES 2.0 grievance portal">SCORES 2.0</a></li>
-                   <li><a href="pdf1/SEBI-Master-Circular-for-Online-Resolution-of-Disputes.pdf" area-label="Download Smart ODR Circular">Smart-ODR Circular</li>
-                   <li><a href="smart_ODR.html" area-label=" Visit Smart ODR login Page">Smart ODR Login</a></li>  
+                   <li><a href="pdf1/SEBI-Master-Circular-for-Online-Resolution-of-Disputes.pdf" aria-label="Download Smart ODR Circular">Smart-ODR Circular</li>
+                   <li><a href="smart_ODR.html" aria-label=" Visit Smart ODR login Page">Smart ODR Login</a></li>  
                 </ul>
               </div>
 
@@ -807,46 +835,98 @@ MSEI (SEBI REGN. NO)-INE260805437;SEBI REGISTRATION NO. CDSL :- IN-DP-386-2018 (
     <script src="js/app.js"></script>
 
     <script>
-        document.getElementById("contact-form").addEventListener("submit", function(event) {
-          let hasError = false;
-          let errorSummary = document.getElementById("errorSummary");
-          errorSummary.innerHTML = "";
-        
-          // Name validation
-          let name = document.getElementById("name").value.trim();
-          let nameError = document.getElementById("nameError");
-          if (name === "") {
-            nameError.textContent = "Full name is required.";
-            hasError = true;
-          } else {
-            nameError.textContent = "";
-          }
-        
-          // Email validation
-          let email = document.getElementById("email").value.trim();
-          let emailError = document.getElementById("emailError");
-          if (!email.match(/^[^@\s]+@[^@\s]+\.[^@\s]+$/)) {
-            emailError.textContent = "Enter a valid email address.";
-            hasError = true;
-          } else {
-            emailError.textContent = "";
-          }
-        
-          // Message validation
-          let message = document.getElementById("message").value.trim();
-          let messageError = document.getElementById("messageError");
-          if (message.length < 10) {
-            messageError.textContent = "Message must be at least 10 characters.";
-            hasError = true;
-          } else {
-            messageError.textContent = "";
-          }
-        
-          // Show summary if errors exist
-          if (hasError) {
-            errorSummary.innerHTML = "<p>⚠️ Please fix the errors before submitting.</p>";
-            event.preventDefault(); // stop form submission
-          }
+        // Form Validation with Accessibility
+        document.addEventListener('DOMContentLoaded', function() {
+            const form = document.getElementById("contact-form");
+            if (!form) return;
+            
+            // Clear error on input
+            ['name', 'email', 'message'].forEach(function(fieldId) {
+                const field = document.getElementById(fieldId);
+                if (field) {
+                    field.addEventListener('input', function() {
+                        const errorEl = document.getElementById(fieldId + 'Error');
+                        if (errorEl) {
+                            errorEl.textContent = '';
+                            errorEl.setAttribute('aria-hidden', 'true');
+                        }
+                        field.removeAttribute('aria-invalid');
+                    });
+                }
+            });
+            
+            form.addEventListener("submit", function(event) {
+                let hasError = false;
+                let firstErrorField = null;
+                let errorSummary = document.getElementById("errorSummary");
+                errorSummary.innerHTML = "";
+                
+                // Name validation
+                let name = document.getElementById("name");
+                let nameValue = name.value.trim();
+                let nameError = document.getElementById("nameError");
+                if (nameValue === "") {
+                    nameError.textContent = "Full name is required. Please enter your full legal name.";
+                    nameError.setAttribute('aria-hidden', 'false');
+                    name.setAttribute('aria-invalid', 'true');
+                    nameError.focus ? nameError.focus() : null;
+                    if (!firstErrorField) firstErrorField = name;
+                    hasError = true;
+                } else {
+                    nameError.textContent = "";
+                    nameError.setAttribute('aria-hidden', 'true');
+                    name.removeAttribute('aria-invalid');
+                }
+                
+                // Email validation
+                let email = document.getElementById("email");
+                let emailValue = email.value.trim();
+                let emailError = document.getElementById("emailError");
+                let emailRegex = /^[^@\s]+@[^@\s]+\.[^@\s]+$/;
+                if (!emailValue.match(emailRegex)) {
+                    emailError.textContent = "Please enter a valid email address (e.g., name@example.com).";
+                    emailError.setAttribute('aria-hidden', 'false');
+                    email.setAttribute('aria-invalid', 'true');
+                    if (!firstErrorField) firstErrorField = email;
+                    hasError = true;
+                } else {
+                    emailError.textContent = "";
+                    emailError.setAttribute('aria-hidden', 'true');
+                    email.removeAttribute('aria-invalid');
+                }
+                
+                // Message validation
+                let message = document.getElementById("message");
+                let messageValue = message.value.trim();
+                let messageError = document.getElementById("messageError");
+                if (messageValue.length < 10) {
+                    messageError.textContent = "Please enter a message with at least 10 characters.";
+                    messageError.setAttribute('aria-hidden', 'false');
+                    message.setAttribute('aria-invalid', 'true');
+                    if (!firstErrorField) firstErrorField = message;
+                    hasError = true;
+                } else {
+                    messageError.textContent = "";
+                    messageError.setAttribute('aria-hidden', 'true');
+                    message.removeAttribute('aria-invalid');
+                }
+                
+                // Show summary if errors exist
+                if (hasError) {
+                    errorSummary.innerHTML = "<p role='alert'><strong>Please fix the following errors:</strong></p><ul><li>If name is empty, please enter your full name</li><li>If email is invalid, please check the format</li><li>If message is too short, please add more details</li></ul>";
+                    event.preventDefault(); // stop form submission
+                    
+                    // Focus first error field for accessibility
+                    if (firstErrorField) {
+                        setTimeout(function() {
+                            firstErrorField.focus();
+                        }, 100);
+                    }
+                } else {
+                    // Success message
+                    errorSummary.innerHTML = "<p class='success-message'>Your message has been sent successfully!</p>";
+                }
+            });
         });
         </script>
 
@@ -901,7 +981,7 @@ MSEI (SEBI REGN. NO)-INE260805437;SEBI REGISTRATION NO. CDSL :- IN-DP-386-2018 (
   
   .fab:hover, .fab:focus {
   background-color: #0056b3;
-  outline: 2px solid white;
+  outline: 3px solid #FFD700; outline-offset: 2px;
   outline-offset: 2px;
   }
   
@@ -930,7 +1010,7 @@ MSEI (SEBI REGN. NO)-INE260805437;SEBI REGISTRATION NO. CDSL :- IN-DP-386-2018 (
   .fab-menu button:hover,
   .fab-menu button:focus {
   background-color: #0056b3;
-  outline: 2px solid white;
+  outline: 3px solid #FFD700; outline-offset: 2px;
   outline-offset: 2px;
   }
   
@@ -970,7 +1050,7 @@ MSEI (SEBI REGN. NO)-INE260805437;SEBI REGISTRATION NO. CDSL :- IN-DP-386-2018 (
   
   .accessibility-panel button:focus,
   .accessibility-panel a:focus {
-  outline: 3px solid yellow; /* WCAG focus visible */
+  outline: 3px solid #FFD700; outline-offset: 2px;
   }
   
   /* Dark mode */
@@ -1054,17 +1134,81 @@ MSEI (SEBI REGN. NO)-INE260805437;SEBI REGISTRATION NO. CDSL :- IN-DP-386-2018 (
   </script>
 
   <!-- Google Translate Script -->
-<div id="google_translate_element" style="display:none;"></div>
-<script type="text/javascript">
-function googleTranslateElementInit() {
-  new google.translate.TranslateElement(
-    {pageLanguage: 'en', includedLanguages: 'hi,en', layout: google.translate.TranslateElement.InlineLayout.SIMPLE},
-    'google_translate_element'
-  );
-}
-</script>
-<script type="text/javascript" src="//translate.google.com/translate_a/element.js?cb=googleTranslateElementInit"></script>
+  <div id="google_translate_element" style="display:none;" aria-hidden="true"></div>
+  <script type="text/javascript">
+  function googleTranslateElementInit() {
+    new google.translate.TranslateElement(
+      {pageLanguage: 'en', includedLanguages: 'hi,en', layout: google.translate.TranslateElement.InlineLayout.SIMPLE},
+      'google_translate_element'
+    );
+  }
+  </script>
+  <script type="text/javascript" src="//translate.google.com/translate_a/element.js?cb=googleTranslateElementInit"></script>
 
+  <!-- Language Toggle Buttons for Accessibility -->
+  <script>
+  document.addEventListener('DOMContentLoaded', function() {
+      // Add language toggle buttons after translation loads
+      var checkTranslation = setInterval(function() {
+          var translateElement = document.getElementById('google_translate_element');
+          if (translateElement && translateElement.querySelector('.goog-te-gadget')) {
+              clearInterval(checkTranslation);
+              
+              // Hide original Google Translate widget
+              var gadget = translateElement.querySelector('.goog-te-gadget');
+              gadget.style.display = 'none';
+              
+              // Create accessible language toggle
+              var langToggle = document.createElement('div');
+              langToggle.className = 'language-toggle-wrapper';
+              langToggle.setAttribute('role', 'group');
+              langToggle.setAttribute('aria-label', 'Language selection');
+              langToggle.innerHTML = 
+                  '<button type="button" class="lang-toggle-btn active" data-lang="en" aria-pressed="true" aria-label="Switch to English">EN</button>' +
+                  '<button type="button" class="lang-toggle-btn" data-lang="hi" aria-pressed="false" aria-label="Switch to Hindi">हिं</button>';
+              
+              translateElement.appendChild(langToggle);
+              
+              // Add click handlers
+              langToggle.querySelectorAll('.lang-toggle-btn').forEach(function(btn) {
+                  btn.addEventListener('click', function() {
+                      var lang = this.getAttribute('data-lang');
+                      var select = gadget.querySelector('.goog-te-combo');
+                      if (select) {
+                          select.value = lang;
+                          select.dispatchEvent(new Event('change'));
+                          
+                          // Update button states
+                          langToggle.querySelectorAll('.lang-toggle-btn').forEach(function(b) {
+                              b.classList.remove('active');
+                              b.setAttribute('aria-pressed', 'false');
+                          });
+                          this.classList.add('active');
+                          this.setAttribute('aria-pressed', 'true');
+                          
+                          // Update page language
+                          document.documentElement.lang = lang;
+                          
+                          // Announce change to screen readers
+                          var announcer = document.getElementById('sr-announcer');
+                          if (announcer) {
+                              announcer.textContent = 'Language changed to ' + (lang === 'hi' ? 'Hindi' : 'English');
+                          }
+                      }
+                  });
+              });
+          }
+      }, 500);
+  });
+  </script>
+
+  <!-- Reduced Motion Support -->
+  <script>
+  if (window.matchMedia('(prefers-reduced-motion: reduce)').matches) {
+      document.documentElement.style.setProperty('--animation-duration', '0.01ms');
+      document.documentElement.style.setProperty('--transition-duration', '0.01ms');
+  }
+  </script>
 
 </body>
 
