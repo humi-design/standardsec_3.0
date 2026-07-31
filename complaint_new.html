@@ -8,14 +8,13 @@
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <meta name="theme-color" content="#4184dd" />
     <!-- Site Properties -->
-    <title>Register Complaint - Standard Securities & Investment Intermediates Ltd.</title>
+    <title>Standard Securities & Investment Intermediates Ltd.</title>
     <link rel="shortcut icon" href="favicon.ico" type="image/x-icon">
     <link rel="apple-touch-icon-precomposed" href="apple-touch-icon.png">
     <!-- CSS -->
     <link rel="stylesheet" href="css/uikit.css">
     <link rel="stylesheet" href="css/style.css">
     <link rel="stylesheet" href="css/style_bot.css">
-    <link rel="stylesheet" href="css/accessibility-fixes.css">
 
     <script src="https://www.google.com/recaptcha/api.js"></script>
     
@@ -38,12 +37,6 @@ tr:hover {background-color: #B8E2F2;}
 </head>
 
 <body>
-    <!-- Skip Navigation Link -->
-    <a href="#main-content" class="skip-link">Skip to main content</a>
-
-    <!-- Screen Reader Announcements -->
-    <div id="sr-announcer" aria-live="polite" aria-atomic="true" class="sr-only"></div>
-
     
   <header data-uk-sticky="top: 400; cls-active: in-sticky">
 
@@ -107,7 +100,7 @@ tr:hover {background-color: #B8E2F2;}
                 </div>
                 <div class="in-navbar-wrapper uk-width-1-2 uk-width-auto@m">
                     <!-- main navigation begin -->
-                    <nav class="uk-navbar-container uk-visible@m" data-uk-navbar aria-label="Main navigation" role="navigation">
+                    <nav class="uk-navbar-container uk-visible@m" data-uk-navbar aria-label="Main navigation">
                         <ul class="uk-navbar-nav" role="menubar">
                           
                           <!-- Home -->
@@ -200,10 +193,10 @@ tr:hover {background-color: #B8E2F2;}
                             <a href="complaint_new.html" role="menuitem" aria-label="Submit or check Complaints">Complaints</a>
                           </li>
                           <li>
-                            <div id="google_translate_nav_desktop"></div>
+                            <div id="google_translate_nav"></div>
                           </li>
                           <li>
-                         id="google_translate_nav_mobile"ate_nav"></div>
+                            <div id="google_translate_nav"></div>
                           </li>
                           
                         </ul>
@@ -213,7 +206,7 @@ tr:hover {background-color: #B8E2F2;}
                     <!-- main navigation end -->
                     <!-- Mobile Navigation Begin -->
 <div class="in-mobile-nav uk-height-1-1 uk-flex uk-flex-right uk-flex-middle uk-hidden@m">
-<button class="uk-button mobile-nav-toggle" href="#mobile-nav-modal" data-uk-toggle aria-label="Open mobile navigation menu" aria-expanded="false" aria-controls="mobile-nav-modal" data-uk-toggle aria-label="Open mobile navigation menu">
+<button class="uk-button" href="#mobile-nav-modal" data-uk-toggle aria-label="Open mobile navigation menu">
     <i class="fas fa-bars" aria-hidden="true"></i>
 </button>
 </div>
@@ -332,7 +325,7 @@ tr:hover {background-color: #B8E2F2;}
 
 
 
-    <main id="main-content" role="main" tabindex="-1">
+    <main>
         <!-- breadcrumb content begin -->
         <div class="uk-section uk-section-small">
             <div class="uk-container">
@@ -375,57 +368,46 @@ tr:hover {background-color: #B8E2F2;}
 <div class="uk-width-expand@m">
     <div class="uk-card uk-card-secondary uk-margin-small-top">
       <div class="uk-card-body">
-        <form id="contact-form" method="post" class="uk-form" action="complaint.php" novalidate aria-label="Complaint registration form">
+        <form id="contact-form" method="post" class="uk-form" action="complaint.php" novalidate>
   
           <!-- Error Summary -->
-          <div id="errorSummary" role="alert" aria-live="assertive" class="form-error-summary"></div>
+          <div id="errorSummary" role="alert" aria-live="assertive" style="color:red; margin-bottom:10px;"></div>
   
           <!-- Client Code -->
           <div class="uk-margin uk-width-1-1">
-            <label for="client_code" class="uk-form-label">Client Code / PAN <span aria-hidden="true">*</span></label>
+            <label for="client_code" class="uk-form-label">Client Code / PAN</label>
             <input class="uk-input" id="client_code" name="client_code" type="text"
-                   placeholder="Enter client code or PAN details" required aria-required="true"
-                   autocomplete="off"
-                   aria-describedby="client_code-hint clientCodeError">
-            <span id="client_code-hint" class="uk-form-help">Enter your trading client code or PAN number</span>
-            <small id="clientCodeError" class="error-message" role="alert" aria-live="assertive"></small>
+                   placeholder="Enter client code or PAN details" required>
+            <small id="clientCodeError" style="color:red;"></small>
           </div>
   
           <!-- Customer Name -->
           <div class="uk-margin uk-width-1-1">
-            <label for="customer_name" class="uk-form-label">Full Name <span aria-hidden="true">*</span></label>
+            <label for="customer_name" class="uk-form-label">Full Name</label>
             <input class="uk-input" id="customer_name" name="customer_name" type="text"
-                   placeholder="Your Full Name" required aria-required="true"
-                   autocomplete="name"
-                   aria-describedby="customer_name-hint customerNameError">
-            <span id="customer_name-hint" class="uk-form-help">Enter your full legal name</span>
-            <small id="customerNameError" class="error-message" role="alert" aria-live="assertive"></small>
+                   placeholder="Your Full Name" required>
+            <small id="customerNameError" style="color:red;"></small>
           </div>
   
           <!-- Customer Email -->
           <div class="uk-margin uk-width-1-1">
-            <label for="customer_email" class="uk-form-label">Email Address <span aria-hidden="true">*</span></label>
+            <label for="customer_email" class="uk-form-label">Email</label>
             <input class="uk-input" id="customer_email" name="customer_email" type="email"
-                   placeholder="Your Email" required aria-required="true"
-                   autocomplete="email"
-                   aria-describedby="customer_email-hint customerEmailError">
-            <span id="customer_email-hint" class="uk-form-help">Enter your email address for us to respond</span>
-            <small id="customerEmailError" class="error-message" role="alert" aria-live="assertive"></small>
+                   placeholder="Your Email" required>
+            <small id="customerEmailError" style="color:red;"></small>
           </div>
   
           <!-- Complaint -->
           <div class="uk-margin uk-width-1-1">
-            <label for="complaint" class="uk-form-label">Complaint <span aria-hidden="true">*</span></label>
+            <label for="complaint" class="uk-form-label">Complaint</label>
             <textarea class="uk-textarea" id="complaint" name="complaint" rows="6"
-                      placeholder="Write your Complaint in detail" required aria-required="true"
-                      aria-describedby="complaint-hint complaintError"></textarea>
-            <span id="complaint-hint" class="uk-form-help">Please describe your complaint in detail</span>
-            <small id="complaintError" class="error-message" role="alert" aria-live="assertive"></small>
+                      placeholder="Write your Complaint" required></textarea>
+            <small id="complaintError" style="color:red;"></small>
           </div>
   
           <!-- reCAPTCHA -->
           <div class="g-recaptcha brochure__form__captcha uk-margin"
-               data-sitekey="6LcCuhAiAAAAAIcwbPIbre3c1cDuJwY4uZGHSZpl" aria-label="reCAPTCHA verification"></div>
+               data-sitekey="6LcCuhAiAAAAAIcwbPIbre3c1cDuJwY4uZGHSZpl"></div>
   
           <!-- Submit Button -->
           <button class="uk-width-1-1 uk-button uk-button-primary uk-border-rounded"
@@ -486,7 +468,7 @@ tr:hover {background-color: #B8E2F2;}
         </div>
     </div>
     
-    <footer role="contentinfo">
+    <footer>
         <!-- footer content begin -->
         <div class="uk-section uk-padding-remove-vertical uk-margin-medium-top">
           <div class="uk-container">
@@ -553,15 +535,15 @@ tr:hover {background-color: #B8E2F2;}
                <div>
                 <h4>Quick Links</h4>
                 <ul class="uk-list uk-link-text">
-                    <li><a href="accessibility.html" aria-label="Read Accessibility Statement">Accessibility</a></li>
+                    <li><a href="accessibility.html" area-label="Read Accessibility Statement">Accessibility</a></li>
                   <li><a href="https://www.sebi.gov.in/" aria-label="Visit SEBI official website">SEBI</a></li>
                   <li><a href="https://www.nseindia.com/" aria-label="Visit NSE official website">NSE</a></li>
                   <li><a href="https://www.bseindia.com/" aria-label="Visit BSE official website">BSE</a></li>
                   <li><a href="https://www.cdslindia.com/" aria-label="Visit CDSL official website">CDSL</a></li>
                   <li><a href="https://www.mcxindia.com" aria-label="Visit MCX India official website">MCX India</a></li>
                   <li><a href="https://scores.sebi.gov.in" aria-label="Visit SEBI SCORES 2.0 grievance portal">SCORES 2.0</a></li>
-                   <li><a href="pdf1/SEBI-Master-Circular-for-Online-Resolution-of-Disputes.pdf" aria-label="Download Smart ODR Circular">Smart-ODR Circular</li>
-                   <li><a href="smart_ODR.html" aria-label=" Visit Smart ODR login Page">Smart ODR Login</a></li>  
+                   <li><a href="pdf1/SEBI-Master-Circular-for-Online-Resolution-of-Disputes.pdf" area-label="Download Smart ODR Circular">Smart-ODR Circular</li>
+                   <li><a href="smart_ODR.html" area-label=" Visit Smart ODR login Page">Smart ODR Login</a></li>  
                 </ul>
               </div>
 
@@ -738,112 +720,58 @@ MSEI (SEBI REGN. NO)-INE260805437;SEBI REGISTRATION NO. CDSL :- IN-DP-386-2018 (
     <script src="js/vendor/in-core.js"></script>
     <script src="js/config.js"></script>
     <script src="js/app.js"></script>
-    <!-- Validation Script with Accessibility -->
+    <!-- Validation Script -->
 <script>
-    document.addEventListener('DOMContentLoaded', function() {
-        const form = document.getElementById("contact-form");
-        if (!form) return;
-        
-        // Clear errors on input
-        ['client_code', 'customer_name', 'customer_email', 'complaint'].forEach(function(fieldId) {
-            const field = document.getElementById(fieldId);
-            if (field) {
-                field.addEventListener('input', function() {
-                    const errorEl = document.getElementById(fieldId.replace('_', '') + 'Error') || 
-                                   document.getElementById(fieldId + 'Error');
-                    if (errorEl) {
-                        errorEl.textContent = '';
-                        errorEl.setAttribute('aria-hidden', 'true');
-                    }
-                    field.removeAttribute('aria-invalid');
-                });
-            }
-        });
-        
-        form.addEventListener("submit", function(event) {
-          let hasError = false;
-          let firstErrorField = null;
-          let errorSummary = document.getElementById("errorSummary");
-          errorSummary.innerHTML = "";
-        
-          // Client Code validation
-          let clientCodeField = document.getElementById("client_code");
-          let clientCode = clientCodeField.value.trim();
-          let clientCodeError = document.getElementById("clientCodeError");
-          if (clientCode === "") {
-            clientCodeError.textContent = "Client Code or PAN is required. Please enter your trading client code or PAN number.";
-            clientCodeError.setAttribute('aria-hidden', 'false');
-            clientCodeField.setAttribute('aria-invalid', 'true');
-            if (!firstErrorField) firstErrorField = clientCodeField;
-            hasError = true;
-          } else {
-            clientCodeError.textContent = "";
-            clientCodeError.setAttribute('aria-hidden', 'true');
-            clientCodeField.removeAttribute('aria-invalid');
-          }
-        
-          // Customer Name validation
-          let customerNameField = document.getElementById("customer_name");
-          let customerName = customerNameField.value.trim();
-          let customerNameError = document.getElementById("customerNameError");
-          if (customerName === "") {
-            customerNameError.textContent = "Full name is required. Please enter your full legal name.";
-            customerNameError.setAttribute('aria-hidden', 'false');
-            customerNameField.setAttribute('aria-invalid', 'true');
-            if (!firstErrorField) firstErrorField = customerNameField;
-            hasError = true;
-          } else {
-            customerNameError.textContent = "";
-            customerNameError.setAttribute('aria-hidden', 'true');
-            customerNameField.removeAttribute('aria-invalid');
-          }
-        
-          // Email validation
-          let emailField = document.getElementById("customer_email");
-          let email = emailField.value.trim();
-          let customerEmailError = document.getElementById("customerEmailError");
-          let emailRegex = /^[^@\s]+@[^@\s]+\.[^@\s]+$/;
-          if (!email.match(emailRegex)) {
-            customerEmailError.textContent = "Please enter a valid email address (e.g., name@example.com).";
-            customerEmailError.setAttribute('aria-hidden', 'false');
-            emailField.setAttribute('aria-invalid', 'true');
-            if (!firstErrorField) firstErrorField = emailField;
-            hasError = true;
-          } else {
-            customerEmailError.textContent = "";
-            customerEmailError.setAttribute('aria-hidden', 'true');
-            emailField.removeAttribute('aria-invalid');
-          }
-        
-          // Complaint validation
-          let complaintField = document.getElementById("complaint");
-          let complaint = complaintField.value.trim();
-          let complaintError = document.getElementById("complaintError");
-          if (complaint.length < 10) {
-            complaintError.textContent = "Please enter a complaint with at least 10 characters.";
-            complaintError.setAttribute('aria-hidden', 'false');
-            complaintField.setAttribute('aria-invalid', 'true');
-            if (!firstErrorField) firstErrorField = complaintField;
-            hasError = true;
-          } else {
-            complaintError.textContent = "";
-            complaintError.setAttribute('aria-hidden', 'true');
-            complaintField.removeAttribute('aria-invalid');
-          }
-        
-          // Show error summary if needed
-          if (hasError) {
-            errorSummary.innerHTML = "<p role='alert'><strong>Please correct the following errors:</strong></p><ul><li>If client code is empty, please enter your trading client code or PAN</li><li>If name is empty, please enter your full legal name</li><li>If email is invalid, please check the format</li><li>If complaint is too short, please provide more details</li></ul>";
-            event.preventDefault();
-            
-            // Focus first error field
-            if (firstErrorField) {
-                setTimeout(function() {
-                    firstErrorField.focus();
-                }, 100);
-            }
-          }
-        });
+    document.getElementById("contact-form").addEventListener("submit", function(event) {
+      let hasError = false;
+      let errorSummary = document.getElementById("errorSummary");
+      errorSummary.innerHTML = "";
+    
+      // Client Code validation
+      let clientCode = document.getElementById("client_code").value.trim();
+      let clientCodeError = document.getElementById("clientCodeError");
+      if (clientCode === "") {
+        clientCodeError.textContent = "Client Code or PAN is required.";
+        hasError = true;
+      } else {
+        clientCodeError.textContent = "";
+      }
+    
+      // Customer Name validation
+      let customerName = document.getElementById("customer_name").value.trim();
+      let customerNameError = document.getElementById("customerNameError");
+      if (customerName === "") {
+        customerNameError.textContent = "Full name is required.";
+        hasError = true;
+      } else {
+        customerNameError.textContent = "";
+      }
+    
+      // Email validation
+      let email = document.getElementById("customer_email").value.trim();
+      let customerEmailError = document.getElementById("customerEmailError");
+      if (!email.match(/^[^@\s]+@[^@\s]+\.[^@\s]+$/)) {
+        customerEmailError.textContent = "Enter a valid email address.";
+        hasError = true;
+      } else {
+        customerEmailError.textContent = "";
+      }
+    
+      // Complaint validation
+      let complaint = document.getElementById("complaint").value.trim();
+      let complaintError = document.getElementById("complaintError");
+      if (complaint.length < 10) {
+        complaintError.textContent = "Complaint must be at least 10 characters.";
+        hasError = true;
+      } else {
+        complaintError.textContent = "";
+      }
+    
+      // Show error summary if needed
+      if (hasError) {
+        errorSummary.innerHTML = "<p>⚠️ Please correct the errors before submitting.</p>";
+        event.preventDefault();
+      }
     });
     </script>
 
@@ -898,7 +826,7 @@ MSEI (SEBI REGN. NO)-INE260805437;SEBI REGISTRATION NO. CDSL :- IN-DP-386-2018 (
   
   .fab:hover, .fab:focus {
   background-color: #0056b3;
-  outline: 3px solid #FFD700; outline-offset: 2px;
+  outline: 2px solid white;
   outline-offset: 2px;
   }
   
@@ -927,7 +855,7 @@ MSEI (SEBI REGN. NO)-INE260805437;SEBI REGISTRATION NO. CDSL :- IN-DP-386-2018 (
   .fab-menu button:hover,
   .fab-menu button:focus {
   background-color: #0056b3;
-  outline: 3px solid #FFD700; outline-offset: 2px;
+  outline: 2px solid white;
   outline-offset: 2px;
   }
   
@@ -967,7 +895,7 @@ MSEI (SEBI REGN. NO)-INE260805437;SEBI REGISTRATION NO. CDSL :- IN-DP-386-2018 (
   
   .accessibility-panel button:focus,
   .accessibility-panel a:focus {
-  outline: 3px solid #FFD700; outline-offset: 2px;
+  outline: 3px solid yellow; /* WCAG focus visible */
   }
   
   /* Dark mode */
@@ -1051,7 +979,7 @@ MSEI (SEBI REGN. NO)-INE260805437;SEBI REGISTRATION NO. CDSL :- IN-DP-386-2018 (
   </script>
 
   <!-- Google Translate Script -->
-<div id="google_translate_element" style="display:none;" aria-hidden="true"></div>
+<div id="google_translate_element" style="display:none;"></div>
 <script type="text/javascript">
 function googleTranslateElementInit() {
   new google.translate.TranslateElement(
@@ -1063,14 +991,6 @@ function googleTranslateElementInit() {
 <script type="text/javascript" src="//translate.google.com/translate_a/element.js?cb=googleTranslateElementInit"></script>
 
 
-
-    <!-- Reduced Motion Support -->
-    <script>
-    if (window.matchMedia('(prefers-reduced-motion: reduce)').matches) {
-        document.documentElement.style.setProperty('--animation-duration', '0.01ms');
-        document.documentElement.style.setProperty('--transition-duration', '0.01ms');
-    }
-    </script>
 </body>
 
 </html>
