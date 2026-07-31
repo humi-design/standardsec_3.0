@@ -416,7 +416,7 @@ tr:hover {background-color: #B8E2F2;}
           <!-- Name Field -->
           <div class="uk-margin uk-width-1-1">
             <label for="name">Full Name <span class="required-indicator" aria-hidden="true">*</span><span class="sr-only">(required)</span></label>
-            <input class="uk-input" id="name" name="name" type="text" placeholder="Enter your full name" required aria-required="true" autocomplete="name" aria-describedby="nameHelp">
+            <input aria-required="true" class="uk-input" id="name" name="name" type="text" placeholder="Enter your full name" required aria-required="true" autocomplete="name" aria-describedby="nameHelp">
             <small id="nameHelp" class="uk-text-muted">Please enter your first and last name</small>
             <small id="nameError" class="form-error" role="alert" aria-live="polite" style="color:#ff8888;"></small>
           </div>
@@ -424,7 +424,7 @@ tr:hover {background-color: #B8E2F2;}
           <!-- Email Field -->
           <div class="uk-margin uk-width-1-1">
             <label for="email">Email Address <span class="required-indicator" aria-hidden="true">*</span><span class="sr-only">(required)</span></label>
-            <input class="uk-input" id="email" name="email" type="email" placeholder="Enter your email address" required aria-required="true" autocomplete="email" aria-describedby="emailHelp">
+            <input aria-required="true" class="uk-input" id="email" name="email" type="email" placeholder="Enter your email address" required aria-required="true" autocomplete="email" aria-describedby="emailHelp">
             <small id="emailHelp" class="uk-text-muted">We'll use this to respond to your inquiry</small>
             <small id="emailError" class="form-error" role="alert" aria-live="polite" style="color:#ff8888;"></small>
           </div>
@@ -552,13 +552,11 @@ tr:hover {background-color: #B8E2F2;}
     
             <!-- Floating Chat Button -->
             <div class="chatbox__button">
-                <button aria-label="Open chatbot" type="button">
-                    <img 
+                <button aria-label="Open chatbot" type="button" aria-label="Open chat"><img 
                         src="https://img.icons8.com/external-flaticons-lineal-color-flat-icons/64/000000/external-chatbot-live-streaming-flaticons-lineal-color-flat-icons.png" 
                         alt="Open chat with bot" 
                         width="55" 
-                        height="65">
-                </button>
+                        height="65" alt="Chat icon"></button>
             </div>
         </div>
     </div>

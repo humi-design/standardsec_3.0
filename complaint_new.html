@@ -379,7 +379,7 @@ tr:hover {background-color: #B8E2F2;}
           <!-- Client Code -->
           <div class="uk-margin uk-width-1-1">
             <label for="client_code" class="uk-form-label">Client Code / PAN</label>
-            <input class="uk-input" id="client_code" name="client_code" type="text"
+            <input aria-required="true" class="uk-input" id="client_code" name="client_code" type="text"
                    placeholder="Enter client code or PAN details" required>
             <small id="clientCodeError" style="color:red;"></small>
           </div>
@@ -387,7 +387,7 @@ tr:hover {background-color: #B8E2F2;}
           <!-- Customer Name -->
           <div class="uk-margin uk-width-1-1">
             <label for="customer_name" class="uk-form-label">Full Name</label>
-            <input class="uk-input" id="customer_name" name="customer_name" type="text"
+            <input aria-required="true" autocomplete="name"  class="uk-input" id="customer_name" name="customer_name" type="text"
                    placeholder="Your Full Name" required>
             <small id="customerNameError" style="color:red;"></small>
           </div>
@@ -395,7 +395,7 @@ tr:hover {background-color: #B8E2F2;}
           <!-- Customer Email -->
           <div class="uk-margin uk-width-1-1">
             <label for="customer_email" class="uk-form-label">Email</label>
-            <input class="uk-input" id="customer_email" name="customer_email" type="email"
+            <input aria-required="true" autocomplete="email"  class="uk-input" id="customer_email" name="customer_email" type="email"
                    placeholder="Your Email" required>
             <small id="customerEmailError" style="color:red;"></small>
           </div>
@@ -460,13 +460,11 @@ tr:hover {background-color: #B8E2F2;}
     
             <!-- Floating Chat Button -->
             <div class="chatbox__button">
-                <button aria-label="Open chatbot" type="button">
-                    <img 
+                <button aria-label="Open chatbot" type="button" aria-label="Open chat"><img 
                         src="https://img.icons8.com/external-flaticons-lineal-color-flat-icons/64/000000/external-chatbot-live-streaming-flaticons-lineal-color-flat-icons.png" 
                         alt="Open chat with bot" 
                         width="55" 
-                        height="65">
-                </button>
+                        height="65" alt="Chat icon"></button>
             </div>
         </div>
     </div>
