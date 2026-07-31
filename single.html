@@ -14,9 +14,16 @@
     <!-- CSS -->
     <link rel="stylesheet" href="css/uikit.css">
     <link rel="stylesheet" href="css/style.css">
+    <link rel="stylesheet" href="css/accessibility-fixes.css">
 </head>
 
 <body>
+    <!-- Skip Navigation Link -->
+    <a href="#main-content" class="skip-link">Skip to main content</a>
+
+    <!-- Screen Reader Announcements -->
+    <div id="sr-announcer" aria-live="polite" aria-atomic="true" class="sr-only"></div>
+
   
     <header data-uk-sticky="top: 400; cls-active: in-sticky">
 
@@ -80,7 +87,7 @@
                     </div>
                     <div class="in-navbar-wrapper uk-width-1-2 uk-width-auto@m">
                         <!-- main navigation begin -->
-                        <nav class="uk-navbar-container uk-visible@m" data-uk-navbar aria-label="Main navigation">
+                        <nav class="uk-navbar-container uk-visible@m" data-uk-navbar aria-label="Main navigation" role="navigation">
                             <ul class="uk-navbar-nav" role="menubar">
                               
                               <!-- Home -->
@@ -172,10 +179,10 @@
                                 <a href="complaint_new.html" role="menuitem" aria-label="Submit or check Complaints">Complaints</a>
                               </li>
                               <li>
-                                <div id="google_translate_nav"></div>
+                                <div id="google_translate_nav_desktop"></div>
                               </li>
                               <li>
-                                <div id="google_translate_nav"></div>
+                             id="google_translate_nav_mobile"ate_nav"></div>
                               </li>
                               
                             </ul>
@@ -185,7 +192,7 @@
                         <!-- main navigation end -->
                         <!-- Mobile Navigation Begin -->
 <div class="in-mobile-nav uk-height-1-1 uk-flex uk-flex-right uk-flex-middle uk-hidden@m">
-    <button class="uk-button" href="#mobile-nav-modal" data-uk-toggle aria-label="Open mobile navigation menu">
+    <button class="uk-button mobile-nav-toggle" href="#mobile-nav-modal" data-uk-toggle aria-label="Open mobile navigation menu" aria-expanded="false" aria-controls="mobile-nav-modal" data-uk-toggle aria-label="Open mobile navigation menu">
         <i class="fas fa-bars" aria-hidden="true"></i>
     </button>
 </div>
@@ -290,7 +297,7 @@
         <!-- header content end -->
     </header>
 
-    <main>
+    <main id="main-content" role="main" tabindex="-1">
         <!-- breadcrumb content begin -->
         <div class="uk-section uk-section-small">
             <div class="uk-container">
@@ -329,7 +336,7 @@
                                     <p>Nemo enim ipsam voluptatem quia voluptas sit aspernatur aut odit aut fugit, sed quia consequuntur magni dolores eos qui ratione voluptatem sequi nesciunt neque porro quisquam est, qui dolorem ipsum quia dolor sit amet, consectetur, adipisci velit, sed quia non numquam eius modi tempora incidunt.</p>
                                     <blockquote class="in-blockquote" cite="#">
                                         <p class="uk-margin-small-bottom">At vero eose accusamus iusto dignissim ducimus blanditiis praesentium voluptatum deleniti atque oddi corrupti quos dolores ettios quas membrant</p>
-                                        <footer>
+                                        <footer role="contentinfo">
                                             <cite>Mark Harris</cite>
                                         </footer>
                                     </blockquote>
@@ -470,7 +477,7 @@
         <!-- section blog end -->
     </main>
 
-     <footer>
+     <footer role="contentinfo">
         <!-- footer content begin -->
         <div class="uk-section uk-padding-remove-vertical uk-margin-medium-top">
             <div class="uk-container">
@@ -623,7 +630,7 @@
     
     .fab:hover, .fab:focus {
     background-color: #0056b3;
-    outline: 2px solid white;
+    outline: 3px solid #FFD700; outline-offset: 2px;
     outline-offset: 2px;
     }
     
@@ -652,7 +659,7 @@
     .fab-menu button:hover,
     .fab-menu button:focus {
     background-color: #0056b3;
-    outline: 2px solid white;
+    outline: 3px solid #FFD700; outline-offset: 2px;
     outline-offset: 2px;
     }
     
@@ -692,7 +699,7 @@
     
     .accessibility-panel button:focus,
     .accessibility-panel a:focus {
-    outline: 3px solid yellow; /* WCAG focus visible */
+    outline: 3px solid #FFD700; outline-offset: 2px;
     }
     
     /* Dark mode */
@@ -776,7 +783,7 @@
     </script>
 
     <!-- Google Translate Script -->
-<div id="google_translate_element" style="display:none;"></div>
+<div id="google_translate_element" style="display:none;" aria-hidden="true"></div>
 <script type="text/javascript">
   function googleTranslateElementInit() {
     new google.translate.TranslateElement(
@@ -788,6 +795,14 @@
 <script type="text/javascript" src="//translate.google.com/translate_a/element.js?cb=googleTranslateElementInit"></script>
 
 
+
+    <!-- Reduced Motion Support -->
+    <script>
+    if (window.matchMedia('(prefers-reduced-motion: reduce)').matches) {
+        document.documentElement.style.setProperty('--animation-duration', '0.01ms');
+        document.documentElement.style.setProperty('--transition-duration', '0.01ms');
+    }
+    </script>
 </body>
 
 </html>
