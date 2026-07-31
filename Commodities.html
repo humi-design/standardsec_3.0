@@ -16,6 +16,7 @@
     <link rel="stylesheet" href="css/uikit.css">
     <link rel="stylesheet" href="css/style.css">
     <link rel="stylesheet" href="css/style_bot.css">
+    <link rel="stylesheet" href="css/accessibility-fixes.css">
 
     <script src="https://www.google.com/recaptcha/api.js"></script>
     
@@ -41,7 +42,7 @@ tr:hover {background-color: #B8E2F2;}
     
   <header data-uk-sticky="top: 400; cls-active: in-sticky">
 
-    <div id="google_translate_element" class="translate-btn"></div>
+    <div id="google_translate_element_Commodities" class="translate-btn"></div>
 
     
     <!-- header content begin -->
@@ -772,12 +773,12 @@ MSEI (SEBI REGN. NO)-INE260805437;SEBI REGISTRATION NO. CDSL :- IN-DP-386-2018 (
     <!-- Accessibility Floating Menu -->
  <div class="accessibility-menu" aria-label="Accessibility Tools">
   <!-- Floating Toggle Button -->
-  <button id="accessibilityToggle" class="fab" aria-expanded="false" aria-controls="accessibilityPanel">
+  <button id="accessibilityToggle_Commodities" class="fab" aria-expanded="false" aria-controls="accessibilityPanel_Commodities">
   ♿
   </button>
   
   <!-- Hidden Panel -->
-  <div id="accessibilityPanel" class="accessibility-panel" hidden>
+  <div id="accessibilityPanel_Commodities" class="accessibility-panel" hidden>
   <button onclick="changeFontSize(1)" aria-label="Increase text size">A+</button>
   <button onclick="changeFontSize(-1)" aria-label="Decrease text size">A-</button>
   <button onclick="toggleDarkMode()" aria-label="Toggle dark mode">🌙 Dark Mode</button>
@@ -939,8 +940,8 @@ MSEI (SEBI REGN. NO)-INE260805437;SEBI REGISTRATION NO. CDSL :- IN-DP-386-2018 (
   
   <!-- JS -->
   <script>
-  const toggleBtn = document.getElementById("accessibilityToggle");
-  const panel = document.getElementById("accessibilityPanel");
+  const toggleBtn = document.getElementById("accessibilityToggle_Commodities");
+  const panel = document.getElementById("accessibilityPanel_Commodities");
   
   toggleBtn.addEventListener("click", () => {
   const expanded = toggleBtn.getAttribute("aria-expanded") === "true";
@@ -971,7 +972,7 @@ MSEI (SEBI REGN. NO)-INE260805437;SEBI REGISTRATION NO. CDSL :- IN-DP-386-2018 (
   </script>
 
   <!-- Google Translate Script -->
-<div id="google_translate_element" style="display:none;"></div>
+<div id="google_translate_element_Commodities" style="display:none;"></div>
 <script type="text/javascript">
 function googleTranslateElementInit() {
   new google.translate.TranslateElement(

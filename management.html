@@ -8,13 +8,14 @@
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <meta name="theme-color" content="#4184dd" />
     <!-- Site Properties -->
-    <title>Standard Securities & Investment Intermediates Ltd.</title>
+    <title>Our Management | Standard Securities & Investment Intermediates Ltd.</title>
     <link rel="shortcut icon" href="favicon.ico" type="image/x-icon">
     <link rel="apple-touch-icon-precomposed" href="apple-touch-icon.png">
     <!-- CSS -->
     <link rel="stylesheet" href="css/uikit.css">
     <link rel="stylesheet" href="css/style.css">
     <link rel="stylesheet" href="css/style_bot.css">
+    <link rel="stylesheet" href="css/accessibility-fixes.css">
 
     <script src="https://www.google.com/recaptcha/api.js"></script>
     
@@ -38,7 +39,7 @@ tr:hover {background-color: #B8E2F2;}
 <body>
   <header data-uk-sticky="top: 400; cls-active: in-sticky">
 
-    <div id="google_translate_element" class="translate-btn"></div>
+    <div id="google_translate_element_management" class="translate-btn"></div>
 
     
     <!-- header content begin -->
@@ -742,12 +743,12 @@ MSEI (SEBI REGN. NO)-INE260805437;SEBI REGISTRATION NO. CDSL :- IN-DP-386-2018 (
     <!-- Accessibility Floating Menu -->
  <div class="accessibility-menu" aria-label="Accessibility Tools">
   <!-- Floating Toggle Button -->
-  <button id="accessibilityToggle" class="fab" aria-expanded="false" aria-controls="accessibilityPanel">
+  <button id="accessibilityToggle_management" class="fab" aria-expanded="false" aria-controls="accessibilityPanel_management">
   ♿
   </button>
   
   <!-- Hidden Panel -->
-  <div id="accessibilityPanel" class="accessibility-panel" hidden>
+  <div id="accessibilityPanel_management" class="accessibility-panel" hidden>
   <button onclick="changeFontSize(1)" aria-label="Increase text size">A+</button>
   <button onclick="changeFontSize(-1)" aria-label="Decrease text size">A-</button>
   <button onclick="toggleDarkMode()" aria-label="Toggle dark mode">🌙 Dark Mode</button>
@@ -909,8 +910,8 @@ MSEI (SEBI REGN. NO)-INE260805437;SEBI REGISTRATION NO. CDSL :- IN-DP-386-2018 (
   
   <!-- JS -->
   <script>
-  const toggleBtn = document.getElementById("accessibilityToggle");
-  const panel = document.getElementById("accessibilityPanel");
+  const toggleBtn = document.getElementById("accessibilityToggle_management");
+  const panel = document.getElementById("accessibilityPanel_management");
   
   toggleBtn.addEventListener("click", () => {
   const expanded = toggleBtn.getAttribute("aria-expanded") === "true";
@@ -941,7 +942,7 @@ MSEI (SEBI REGN. NO)-INE260805437;SEBI REGISTRATION NO. CDSL :- IN-DP-386-2018 (
   </script>
 
   <!-- Google Translate Script -->
-<div id="google_translate_element" style="display:none;"></div>
+<div id="google_translate_element_management" style="display:none;"></div>
 <script type="text/javascript">
 function googleTranslateElementInit() {
   new google.translate.TranslateElement(
