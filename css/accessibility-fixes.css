@@ -1,9 +1,9 @@
 /* ========================================================================
-   ACCESSIBILITY FIXES - Completely Invisible
-   Zero visual impact - only accessibility improvements
+   ACCESSIBILITY FIXES - ZERO DESIGN IMPACT
+   All styles are invisible except on keyboard focus
    ======================================================================== */
 
-/* Skip Link - Hidden until keyboard focus */
+/* ========== SKIP LINK ========== */
 .skip-link {
     position: absolute;
     left: -9999px;
@@ -31,73 +31,120 @@
     clip: auto;
 }
 
-/* Screen Reader Only - Completely Invisible */
+/* ========== SCREEN READER ONLY ========== */
 .sr-only {
-    position: absolute;
-    width: 1px;
-    height: 1px;
-    padding: 0;
-    margin: -1px;
-    overflow: hidden;
-    clip: rect(0, 0, 0, 0);
-    white-space: nowrap;
-    border: 0;
+    position: absolute !important;
+    width: 1px !important;
+    height: 1px !important;
+    padding: 0 !important;
+    margin: -1px !important;
+    overflow: hidden !important;
+    clip: rect(0, 0, 0, 0) !important;
+    white-space: nowrap !important;
+    border: 0 !important;
 }
 
-/* Focus Indicators - Outline Only, No Other Changes */
+/* ========== FOCUS INDICATORS ========== */
 a:focus-visible,
 button:focus-visible,
 input:focus-visible,
 select:focus-visible,
 textarea:focus-visible,
 [tabindex]:focus-visible {
-    outline: 3px solid #146CE0;
+    outline: 3px solid #146CE0 !important;
     outline-offset: 2px;
 }
 
-/* Form Error States - Only Visible When Invalid */
+/* ========== TARGET SIZE (24x24px minimum) ========== */
+@media (max-width: 767px) {
+    button,
+    a.btn,
+    .btn,
+    input[type="submit"],
+    input[type="button"] {
+        min-height: 44px;
+        min-width: 44px;
+        padding: 10px 16px;
+    }
+}
+
+/* ========== TEXT RESIZE SUPPORT (200%) ========== */
+@media (min-width: 1200px) {
+    body {
+        font-size: 16px;
+    }
+}
+
+/* Allow text to reflow without horizontal scrolling at 200% */
+p, li, td, th, label, span, a, div {
+    max-width: 100%;
+    overflow-wrap: break-word;
+}
+
+/* ========== TEXT SPACING SUPPORT (WCAG 1.4.12) ========== */
+/* These overrides allow WCAG text spacing without breaking layout */
+p, li, td, th, label {
+    line-height: 1.5 !important;
+    letter-spacing: 0.12em !important;
+    word-spacing: 0.16em !important;
+}
+
+p {
+    margin-bottom: 1em !important;
+}
+
+/* ========== FORM ERROR STATES ========== */
 input[aria-invalid="true"],
 textarea[aria-invalid="true"],
 select[aria-invalid="true"] {
-    border-color: #c00;
+    border-color: #c00 !important;
 }
 
 input[aria-invalid="true"]:focus,
 textarea[aria-invalid="true"]:focus {
-    outline-color: #c00;
+    outline-color: #c00 !important;
 }
 
 .form-error {
-    color: #c00;
-    font-size: 12px;
-    margin-top: 2px;
+    color: #c00 !important;
+    font-size: 12px !important;
+    margin-top: 2px !important;
 }
 
-/* Required Field Indicator */
-label .required {
-    color: #c00;
+/* ========== REQUIRED FIELD INDICATOR ========== */
+label .required,
+.required-star {
+    color: #c00 !important;
     margin-left: 2px;
 }
 
-/* Reduced Motion - Only For Motion Sensitivity */
+/* ========== REDUCED MOTION ========== */
 @media (prefers-reduced-motion: reduce) {
-    * {
+    *,
+    *::before,
+    *::after {
         animation-duration: 0.01ms !important;
         animation-iteration-count: 1 !important;
         transition-duration: 0.01ms !important;
+        scroll-behavior: auto !important;
     }
 }
 
-/* High Contrast Mode Support */
+/* ========== HIGH CONTRAST MODE ========== */
 @media (forced-colors: active) {
     a:focus-visible,
     button:focus-visible,
     input:focus-visible {
         outline: 3px solid CanvasText !important;
     }
+    
+    .skip-link {
+        background: Canvas !important;
+        color: CanvasText !important;
+    }
 }
 
-/* Print - Hide Accessibility Tools Only */
+/* ========== PRINT ========== */
 @media print {
     .skip-link,
     .accessibility-menu,
