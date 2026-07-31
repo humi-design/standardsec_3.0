@@ -20,7 +20,7 @@
   
     <header data-uk-sticky="top: 400; cls-active: in-sticky">
 
-        <div id="google_translate_element" class="translate-btn"></div>
+        <div id="google_translate_element_single" class="translate-btn"></div>
 
         
         <!-- header content begin -->
@@ -577,12 +577,12 @@
     <!-- Accessibility Floating Menu -->
  <div class="accessibility-menu" aria-label="Accessibility Tools">
     <!-- Floating Toggle Button -->
-    <button id="accessibilityToggle" class="fab" aria-expanded="false" aria-controls="accessibilityPanel">
+    <button id="accessibilityToggle_single" class="fab" aria-expanded="false" aria-controls="accessibilityPanel_single">
     ♿
     </button>
     
     <!-- Hidden Panel -->
-    <div id="accessibilityPanel" class="accessibility-panel" hidden>
+    <div id="accessibilityPanel_single" class="accessibility-panel" hidden>
     <button onclick="changeFontSize(1)" aria-label="Increase text size">A+</button>
     <button onclick="changeFontSize(-1)" aria-label="Decrease text size">A-</button>
     <button onclick="toggleDarkMode()" aria-label="Toggle dark mode">🌙 Dark Mode</button>
@@ -744,8 +744,8 @@
     
     <!-- JS -->
     <script>
-    const toggleBtn = document.getElementById("accessibilityToggle");
-    const panel = document.getElementById("accessibilityPanel");
+    const toggleBtn = document.getElementById("accessibilityToggle_single");
+    const panel = document.getElementById("accessibilityPanel_single");
     
     toggleBtn.addEventListener("click", () => {
     const expanded = toggleBtn.getAttribute("aria-expanded") === "true";
@@ -776,7 +776,7 @@
     </script>
 
     <!-- Google Translate Script -->
-<div id="google_translate_element" style="display:none;"></div>
+<div id="google_translate_element_single" style="display:none;"></div>
 <script type="text/javascript">
   function googleTranslateElementInit() {
     new google.translate.TranslateElement(

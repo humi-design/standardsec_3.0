@@ -4,17 +4,18 @@
 <head>
     <!-- Standard Meta -->
     <meta charset="utf-8">
-    <meta name="description" content="Premium HTML Template by Indonez">
+    <meta name="description" content="Contact Standard Securities & Investment Intermediates Ltd. - Get in touch with our customer support team for trading, accounts, and general inquiries.">
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <meta name="theme-color" content="#4184dd" />
     <!-- Site Properties -->
-    <title>Standard Securities & Investment Intermediates Ltd.</title>
+    <title>Contact Us | Standard Securities & Investment Intermediates Ltd.</title>
     <link rel="shortcut icon" href="favicon.ico" type="image/x-icon">
     <link rel="apple-touch-icon-precomposed" href="apple-touch-icon.png">
     <!-- CSS -->
     <link rel="stylesheet" href="css/uikit.css">
     <link rel="stylesheet" href="css/style.css">
     <link rel="stylesheet" href="css/style_bot.css">
+    <link rel="stylesheet" href="css/accessibility-fixes.css">
 
     <script src="https://www.google.com/recaptcha/api.js"></script>
     
@@ -40,7 +41,7 @@ tr:hover {background-color: #B8E2F2;}
    
   <header data-uk-sticky="top: 400; cls-active: in-sticky">
 
-    <div id="google_translate_element" class="translate-btn"></div>
+    <div id="google_translate_element_contact" class="translate-btn"></div>
 
     
     <!-- header content begin -->
@@ -405,35 +406,41 @@ tr:hover {background-color: #B8E2F2;}
 <div class="uk-width-expand@m">
     <div class="uk-card uk-card-secondary uk-margin-small-top">
       <div class="uk-card-body">
-        <form id="contact-form" class="uk-form" action="mail.php" method="POST" novalidate>
+        <form id="contact-form" class="uk-form" action="mail.php" method="POST" novalidate aria-label="Contact form">
           
           <!-- Error Summary (Accessible) -->
-          <div id="errorSummary" role="alert" aria-live="assertive" style="color: #ffdddd; margin-bottom: 10px;"></div>
+          <div id="errorSummary" role="alert" aria-live="assertive" aria-atomic="true" class="error-summary" style="color: #ffdddd; margin-bottom: 10px;"></div>
   
           <!-- Name Field -->
           <div class="uk-margin uk-width-1-1">
-            <input class="uk-input" id="name" name="name" type="text" placeholder="Full name" required>
-            <small id="nameError" style="color:red;"></small>
+            <label for="name">Full Name <span class="required-indicator" aria-hidden="true">*</span><span class="sr-only">(required)</span></label>
+            <input class="uk-input" id="name" name="name" type="text" placeholder="Enter your full name" required aria-required="true" autocomplete="name" aria-describedby="nameHelp">
+            <small id="nameHelp" class="uk-text-muted">Please enter your first and last name</small>
+            <small id="nameError" class="form-error" role="alert" aria-live="polite" style="color:#ff8888;"></small>
           </div>
   
           <!-- Email Field -->
           <div class="uk-margin uk-width-1-1">
-            <input class="uk-input" id="email" name="email" type="email" placeholder="Email" required>
-            <small id="emailError" style="color:red;"></small>
+            <label for="email">Email Address <span class="required-indicator" aria-hidden="true">*</span><span class="sr-only">(required)</span></label>
+            <input class="uk-input" id="email" name="email" type="email" placeholder="Enter your email address" required aria-required="true" autocomplete="email" aria-describedby="emailHelp">
+            <small id="emailHelp" class="uk-text-muted">We'll use this to respond to your inquiry</small>
+            <small id="emailError" class="form-error" role="alert" aria-live="polite" style="color:#ff8888;"></small>
           </div>
   
           <!-- Message Field -->
           <div class="uk-margin uk-width-1-1">
-            <textarea class="uk-textarea" id="message" name="message" rows="6" placeholder="Message" required></textarea>
-            <small id="messageError" style="color:red;"></small>
+            <label for="message">Message <span class="required-indicator" aria-hidden="true">*</span><span class="sr-only">(required)</span></label>
+            <textarea class="uk-textarea" id="message" name="message" rows="6" placeholder="How can we help you?" required aria-required="true" aria-describedby="messageHelp"></textarea>
+            <small id="messageHelp" class="uk-text-muted">Please provide details about your inquiry (minimum 10 characters)</small>
+            <small id="messageError" class="form-error" role="alert" aria-live="polite" style="color:#ff8888;"></small>
           </div>
   
           <!-- reCAPTCHA -->
-          <div class="g-recaptcha brochure__form__captcha" data-sitekey="6LcCuhAiAAAAAIcwbPIbre3c1cDuJwY4uZGHSZpl"></div>
+          <div class="g-recaptcha brochure__form__captcha" data-sitekey="6LcCuhAiAAAAAIcwbPIbre3c1cDuJwY4uZGHSZpl" aria-label="reCAPTCHA verification"></div>
           <br>
   
           <!-- Submit Button -->
-          <button class="uk-width-1-1 uk-button uk-button-primary uk-border-rounded" id="send" type="submit" name="submit">
+          <button class="uk-width-1-1 uk-button uk-button-primary uk-border-rounded" id="send" type="submit" name="submit" aria-label="Send your message">
             Send Message
           </button>
         </form>
@@ -443,7 +450,7 @@ tr:hover {background-color: #B8E2F2;}
     
         <!-- Escalation Matrix -->
         <div class="uk-section">
-            <h1 class="uk-margin-remove-bottom">Escalation Matrix</h1>
+            <h2 class="uk-margin-remove-bottom">Escalation Matrix</h2>
             <br>
             <div class="uk-overflow-auto">
                 <table class="uk-table uk-table-divider uk-table-striped uk-table-hover">
@@ -812,55 +819,79 @@ MSEI (SEBI REGN. NO)-INE260805437;SEBI REGISTRATION NO. CDSL :- IN-DP-386-2018 (
           let errorSummary = document.getElementById("errorSummary");
           errorSummary.innerHTML = "";
         
+          // Reset aria-invalid states
+          document.getElementById("name").removeAttribute("aria-invalid");
+          document.getElementById("email").removeAttribute("aria-invalid");
+          document.getElementById("message").removeAttribute("aria-invalid");
+        
           // Name validation
           let name = document.getElementById("name").value.trim();
           let nameError = document.getElementById("nameError");
+          let nameInput = document.getElementById("name");
           if (name === "") {
             nameError.textContent = "Full name is required.";
+            nameInput.setAttribute("aria-invalid", "true");
+            nameInput.setAttribute("aria-describedby", "nameError");
             hasError = true;
           } else {
             nameError.textContent = "";
+            nameInput.removeAttribute("aria-invalid");
           }
         
           // Email validation
           let email = document.getElementById("email").value.trim();
           let emailError = document.getElementById("emailError");
+          let emailInput = document.getElementById("email");
           if (!email.match(/^[^@\s]+@[^@\s]+\.[^@\s]+$/)) {
             emailError.textContent = "Enter a valid email address.";
+            emailInput.setAttribute("aria-invalid", "true");
+            emailInput.setAttribute("aria-describedby", "emailError");
             hasError = true;
           } else {
             emailError.textContent = "";
+            emailInput.removeAttribute("aria-invalid");
           }
         
           // Message validation
           let message = document.getElementById("message").value.trim();
           let messageError = document.getElementById("messageError");
+          let messageInput = document.getElementById("message");
           if (message.length < 10) {
             messageError.textContent = "Message must be at least 10 characters.";
+            messageInput.setAttribute("aria-invalid", "true");
+            messageInput.setAttribute("aria-describedby", "messageError");
             hasError = true;
           } else {
             messageError.textContent = "";
+            messageInput.removeAttribute("aria-invalid");
           }
         
           // Show summary if errors exist
           if (hasError) {
             errorSummary.innerHTML = "<p>⚠️ Please fix the errors before submitting.</p>";
             event.preventDefault(); // stop form submission
+            
+            // Focus first invalid field for accessibility
+            const firstInvalid = document.querySelector('[aria-invalid="true"]');
+            if (firstInvalid) {
+              firstInvalid.focus();
+            }
           }
         });
         </script>
 
          <!-- Container where toolbar will be inserted -->
 
-    <!-- Accessibility Floating Menu -->
- <div class="accessibility-menu" aria-label="Accessibility Tools">
-  <!-- Floating Toggle Button -->
-  <button id="accessibilityToggle" class="fab" aria-expanded="false" aria-controls="accessibilityPanel">
-  ♿
-  </button>
-  
-  <!-- Hidden Panel -->
-  <div id="accessibilityPanel" class="accessibility-panel" hidden>
+    <!-- Accessibility Floating Menu - Unique IDs for contact page -->
+    <div class="accessibility-menu" aria-label="Accessibility Tools" role="complementary">
+        <!-- Floating Toggle Button -->
+        <button id="accessibilityToggle_contact" class="fab" aria-expanded="false" aria-controls="accessibilityPanel_contact" aria-label="Open accessibility tools">
+            <span aria-hidden="true">♿</span>
+            <span class="sr-only">Accessibility Options</span>
+        </button>
+        
+        <!-- Hidden Panel -->
+        <div id="accessibilityPanel_contact" class="accessibility-panel" hidden aria-label="Accessibility options">
   <button onclick="changeFontSize(1)" aria-label="Increase text size">A+</button>
   <button onclick="changeFontSize(-1)" aria-label="Decrease text size">A-</button>
   <button onclick="toggleDarkMode()" aria-label="Toggle dark mode">🌙 Dark Mode</button>
@@ -1022,48 +1053,93 @@ MSEI (SEBI REGN. NO)-INE260805437;SEBI REGISTRATION NO. CDSL :- IN-DP-386-2018 (
   
   <!-- JS -->
   <script>
-  const toggleBtn = document.getElementById("accessibilityToggle");
-  const panel = document.getElementById("accessibilityPanel");
-  
-  toggleBtn.addEventListener("click", () => {
-  const expanded = toggleBtn.getAttribute("aria-expanded") === "true";
-  toggleBtn.setAttribute("aria-expanded", !expanded);
-  panel.hidden = expanded; // Toggle show/hide
-  });
+  // Accessibility toggle - contact page specific
+  (function() {
+      const toggleBtn = document.getElementById("accessibilityToggle_contact");
+      const panel = document.getElementById("accessibilityPanel_contact");
+      
+      if (toggleBtn && panel) {
+          toggleBtn.addEventListener("click", function() {
+              const expanded = toggleBtn.getAttribute("aria-expanded") === "true";
+              toggleBtn.setAttribute("aria-expanded", !expanded);
+              panel.hidden = expanded;
+              
+              if (!expanded) {
+                  const firstButton = panel.querySelector('button, a');
+                  if (firstButton) firstButton.focus();
+              }
+          });
+          
+          document.addEventListener("keydown", function(e) {
+              if (e.key === "Escape" && !panel.hidden) {
+                  panel.hidden = true;
+                  toggleBtn.setAttribute("aria-expanded", "false");
+                  toggleBtn.focus();
+              }
+          });
+          
+          document.addEventListener("click", function(e) {
+              if (!panel.contains(e.target) && !toggleBtn.contains(e.target) && !panel.hidden) {
+                  panel.hidden = true;
+                  toggleBtn.setAttribute("aria-expanded", "false");
+              }
+          });
+      }
+  })();
   
   // Font resize
   function changeFontSize(delta) {
-  let body = document.body;
-  let currentSize = parseFloat(window.getComputedStyle(body, null).getPropertyValue('font-size'));
-  body.style.fontSize = (currentSize + delta) + 'px';
+      const html = document.documentElement;
+      const current = parseFloat(window.getComputedStyle(html).getPropertyValue('font-size')) || 16;
+      const newSize = Math.max(12, Math.min(24, current + (delta * 2)));
+      html.style.fontSize = newSize + 'px';
+      localStorage.setItem('fontSize', newSize);
   }
   
   // Dark mode toggle
   function toggleDarkMode() {
-  document.body.classList.toggle("dark-mode");
+      document.body.classList.toggle("dark-mode");
+      const isDark = document.body.classList.contains("dark-mode");
+      localStorage.setItem('darkMode', isDark);
   }
   
   // Text-to-speech
   function readContent() {
-  let content = document.querySelector("main") || document.body;
-  let text = content.innerText;
-  let speech = new SpeechSynthesisUtterance(text);
-  speech.lang = "en-IN"; 
-  window.speechSynthesis.speak(speech);
+      const content = document.getElementById("main-content") || document.querySelector("main") || document.body;
+      const text = content.innerText;
+      if (window.speechSynthesis) {
+          window.speechSynthesis.cancel();
+          const utterance = new SpeechSynthesisUtterance(text);
+          utterance.lang = "en-IN";
+          utterance.rate = 1;
+          utterance.pitch = 1;
+          window.speechSynthesis.speak(utterance);
+      }
   }
+  
+  // Load saved preferences
+  window.addEventListener('DOMContentLoaded', function() {
+      const savedFontSize = localStorage.getItem('fontSize');
+      if (savedFontSize) {
+          document.documentElement.style.fontSize = savedFontSize + 'px';
+      }
+      if (localStorage.getItem('darkMode') === 'true') {
+          document.body.classList.add('dark-mode');
+      }
+  });
   </script>
 
   <!-- Google Translate Script -->
-<div id="google_translate_element" style="display:none;"></div>
-<script type="text/javascript">
-function googleTranslateElementInit() {
-  new google.translate.TranslateElement(
-    {pageLanguage: 'en', includedLanguages: 'hi,en', layout: google.translate.TranslateElement.InlineLayout.SIMPLE},
-    'google_translate_element'
-  );
-}
-</script>
-<script type="text/javascript" src="//translate.google.com/translate_a/element.js?cb=googleTranslateElementInit"></script>
+  <div id="google_translate_element_contact" style="display:none;" aria-hidden="true"></div>
+  <script type="text/javascript">
+  function googleTranslateElementInit_contact() {
+      new google.translate.TranslateElement(
+          {pageLanguage: 'en', includedLanguages: 'hi,en', layout: google.translate.TranslateElement.InlineLayout.SIMPLE, autoDisplay: false},
+          'google_translate_element_contact'
+      );
+  }
+  </script>
+  <script type="text/javascript" src="//translate.google.com/translate_a/element.js?cb=googleTranslateElementInit_contact"></script>
 
 
 </body>

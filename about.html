@@ -4,17 +4,18 @@
 <head>
     <!-- Standard Meta -->
     <meta charset="utf-8">
-    <meta name="description" content="Premium HTML Template by Indonez">
+    <meta name="description" content="Learn about Standard Securities & Investment Intermediates Ltd. - Our history since 1994, philosophy, culture, and commitment to putting clients first.">
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <meta name="theme-color" content="#4184dd" />
     <!-- Site Properties -->
-    <title>Standard Securities & Investment Intermediates Ltd.</title>
+    <title>About Us | Standard Securities & Investment Intermediates Ltd.</title>
     <link rel="shortcut icon" href="favicon.ico" type="image/x-icon">
     <link rel="apple-touch-icon-precomposed" href="apple-touch-icon.png">
     <!-- CSS -->
     <link rel="stylesheet" href="css/uikit.css">
     <link rel="stylesheet" href="css/style.css">
     <link rel="stylesheet" href="css/style_bot.css">
+    <link rel="stylesheet" href="css/accessibility-fixes.css">
     <script src="https://www.google.com/recaptcha/api.js"></script>
     
     
@@ -35,9 +36,13 @@ tr:hover {background-color: #B8E2F2;}
 </head>
 
 <body>
+    <!-- Skip to Main Content Link -->
+    <a href="#main-content" class="skip-link">Skip to main content</a>
+
   <header data-uk-sticky="top: 400; cls-active: in-sticky">
 
-    <div id="google_translate_element" class="translate-btn"></div>
+    <!-- Google Translate Element - unique ID for this page -->
+    <div id="google_translate_element_about" class="translate-btn" aria-label="Language selection"></div>
 
     
     <!-- header content begin -->
@@ -322,13 +327,13 @@ tr:hover {background-color: #B8E2F2;}
 </header>
 
 
-    <main>
+    <main id="main-content" role="main">
         <!-- breadcrumb content begin -->
         <div class="uk-section uk-section-small">
           <div class="uk-container">
             <div class="uk-grid in-breadcrumb">
               <div class="uk-width-1-1">
-                <ul class="uk-breadcrumb">
+                <ul class="uk-breadcrumb" role="navigation" aria-label="Breadcrumb">
                   <li><a href="index.html">Home</a></li>
                 </ul>
               </div>
@@ -884,22 +889,23 @@ MSEI (SEBI REGN. NO)-INE260805437;SEBI REGISTRATION NO. CDSL :- IN-DP-386-2018 (
 
  <!-- Container where toolbar will be inserted -->
 
-    <!-- Accessibility Floating Menu -->
-    <div class="accessibility-menu" aria-label="Accessibility Tools">
-      <!-- Floating Toggle Button -->
-      <button id="accessibilityToggle" class="fab" aria-expanded="false" aria-controls="accessibilityPanel">
-      ♿
-      </button>
-      
-      <!-- Hidden Panel -->
-      <div id="accessibilityPanel" class="accessibility-panel" hidden>
-      <button onclick="changeFontSize(1)" aria-label="Increase text size">A+</button>
-      <button onclick="changeFontSize(-1)" aria-label="Decrease text size">A-</button>
-      <button onclick="toggleDarkMode()" aria-label="Toggle dark mode">🌙 Dark Mode</button>
-      <button onclick="readContent()" aria-label="Read page aloud">🔊 Read</button>
-      <a href="accessibility.html" aria-label="Accessibility Statement">♿ Accessibility</a>
-      </div>
-      </div>
+    <!-- Accessibility Floating Menu - Unique IDs for about page -->
+    <div class="accessibility-menu" aria-label="Accessibility Tools" role="complementary">
+        <!-- Floating Toggle Button -->
+        <button id="accessibilityToggle_about" class="fab" aria-expanded="false" aria-controls="accessibilityPanel_about" aria-label="Open accessibility tools">
+            <span aria-hidden="true">♿</span>
+            <span class="sr-only">Accessibility Options</span>
+        </button>
+        
+        <!-- Hidden Panel -->
+        <div id="accessibilityPanel_about" class="accessibility-panel" hidden aria-label="Accessibility options">
+            <button onclick="changeFontSize(1)" aria-label="Increase text size" class="accessibility-btn">A+</button>
+            <button onclick="changeFontSize(-1)" aria-label="Decrease text size" class="accessibility-btn">A-</button>
+            <button onclick="toggleDarkMode()" aria-label="Toggle dark mode" class="accessibility-btn">🌙 Dark Mode</button>
+            <button onclick="readContent()" aria-label="Read page aloud" class="accessibility-btn">🔊 Read</button>
+            <a href="accessibility.html" aria-label="View accessibility statement" class="accessibility-link">♿ Accessibility Statement</a>
+        </div>
+    </div>
       
       <!-- CSS -->
       <style>
@@ -1054,48 +1060,93 @@ MSEI (SEBI REGN. NO)-INE260805437;SEBI REGISTRATION NO. CDSL :- IN-DP-386-2018 (
       
       <!-- JS -->
       <script>
-      const toggleBtn = document.getElementById("accessibilityToggle");
-      const panel = document.getElementById("accessibilityPanel");
-      
-      toggleBtn.addEventListener("click", () => {
-      const expanded = toggleBtn.getAttribute("aria-expanded") === "true";
-      toggleBtn.setAttribute("aria-expanded", !expanded);
-      panel.hidden = expanded; // Toggle show/hide
-      });
+      // Accessibility toggle - about page specific
+      (function() {
+          const toggleBtn = document.getElementById("accessibilityToggle_about");
+          const panel = document.getElementById("accessibilityPanel_about");
+          
+          if (toggleBtn && panel) {
+              toggleBtn.addEventListener("click", function() {
+                  const expanded = toggleBtn.getAttribute("aria-expanded") === "true";
+                  toggleBtn.setAttribute("aria-expanded", !expanded);
+                  panel.hidden = expanded;
+                  
+                  if (!expanded) {
+                      const firstButton = panel.querySelector('button, a');
+                      if (firstButton) firstButton.focus();
+                  }
+              });
+              
+              document.addEventListener("keydown", function(e) {
+                  if (e.key === "Escape" && !panel.hidden) {
+                      panel.hidden = true;
+                      toggleBtn.setAttribute("aria-expanded", "false");
+                      toggleBtn.focus();
+                  }
+              });
+              
+              document.addEventListener("click", function(e) {
+                  if (!panel.contains(e.target) && !toggleBtn.contains(e.target) && !panel.hidden) {
+                      panel.hidden = true;
+                      toggleBtn.setAttribute("aria-expanded", "false");
+                  }
+              });
+          }
+      })();
       
       // Font resize
       function changeFontSize(delta) {
-      let body = document.body;
-      let currentSize = parseFloat(window.getComputedStyle(body, null).getPropertyValue('font-size'));
-      body.style.fontSize = (currentSize + delta) + 'px';
+          const html = document.documentElement;
+          const current = parseFloat(window.getComputedStyle(html).getPropertyValue('font-size')) || 16;
+          const newSize = Math.max(12, Math.min(24, current + (delta * 2)));
+          html.style.fontSize = newSize + 'px';
+          localStorage.setItem('fontSize', newSize);
       }
       
       // Dark mode toggle
       function toggleDarkMode() {
-      document.body.classList.toggle("dark-mode");
+          document.body.classList.toggle("dark-mode");
+          const isDark = document.body.classList.contains("dark-mode");
+          localStorage.setItem('darkMode', isDark);
       }
       
       // Text-to-speech
       function readContent() {
-      let content = document.querySelector("main") || document.body;
-      let text = content.innerText;
-      let speech = new SpeechSynthesisUtterance(text);
-      speech.lang = "en-IN"; 
-      window.speechSynthesis.speak(speech);
+          const content = document.getElementById("main-content") || document.querySelector("main") || document.body;
+          const text = content.innerText;
+          if (window.speechSynthesis) {
+              window.speechSynthesis.cancel();
+              const utterance = new SpeechSynthesisUtterance(text);
+              utterance.lang = "en-IN";
+              utterance.rate = 1;
+              utterance.pitch = 1;
+              window.speechSynthesis.speak(utterance);
+          }
       }
+      
+      // Load saved preferences
+      window.addEventListener('DOMContentLoaded', function() {
+          const savedFontSize = localStorage.getItem('fontSize');
+          if (savedFontSize) {
+              document.documentElement.style.fontSize = savedFontSize + 'px';
+          }
+          if (localStorage.getItem('darkMode') === 'true') {
+              document.body.classList.add('dark-mode');
+          }
+      });
       </script>
   
       <!-- Google Translate Script -->
-  <div id="google_translate_element" style="display:none;"></div>
+  <div id="google_translate_element_about" style="display:none;" aria-hidden="true"></div>
   <script type="text/javascript">
-    function googleTranslateElementInit() {
+    function googleTranslateElementInit_about() {
       new google.translate.TranslateElement(
-        {pageLanguage: 'en', includedLanguages: 'hi,en', layout: google.translate.TranslateElement.InlineLayout.SIMPLE},
-        'google_translate_element'
+        {pageLanguage: 'en', includedLanguages: 'hi,en', layout: google.translate.TranslateElement.InlineLayout.SIMPLE, autoDisplay: false},
+        'google_translate_element_about'
       );
     }
   </script>
-  <script type="text/javascript" src="//translate.google.com/translate_a/element.js?cb=googleTranslateElementInit"></script>
+  <script type="text/javascript" src="//translate.google.com/translate_a/element.js?cb=googleTranslateElementInit_about"></script>
   
   
 

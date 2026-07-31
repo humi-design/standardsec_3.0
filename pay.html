@@ -15,12 +15,13 @@
     <link rel="stylesheet" href="css/uikit.css">
     <link rel="stylesheet" href="css/style.css">
     <link rel="stylesheet" href="css/style_bot.css">
+    <link rel="stylesheet" href="css/accessibility-fixes.css">
 </head>
 
 <body>
     <header data-uk-sticky="top: 400; cls-active: in-sticky">
 
-        <div id="google_translate_element" class="translate-btn"></div>
+        <div id="google_translate_element_pay" class="translate-btn"></div>
 
         
         <!-- header content begin -->
@@ -1146,12 +1147,12 @@ MSEI (SEBI REGN. NO)-INE260805437;SEBI REGISTRATION NO. CDSL :- IN-DP-386-2018 (
     <!-- Accessibility Floating Menu -->
  <div class="accessibility-menu" aria-label="Accessibility Tools">
     <!-- Floating Toggle Button -->
-    <button id="accessibilityToggle" class="fab" aria-expanded="false" aria-controls="accessibilityPanel">
+    <button id="accessibilityToggle_pay" class="fab" aria-expanded="false" aria-controls="accessibilityPanel_pay">
     ♿
     </button>
     
     <!-- Hidden Panel -->
-    <div id="accessibilityPanel" class="accessibility-panel" hidden>
+    <div id="accessibilityPanel_pay" class="accessibility-panel" hidden>
     <button onclick="changeFontSize(1)" aria-label="Increase text size">A+</button>
     <button onclick="changeFontSize(-1)" aria-label="Decrease text size">A-</button>
     <button onclick="toggleDarkMode()" aria-label="Toggle dark mode">🌙 Dark Mode</button>
@@ -1313,8 +1314,8 @@ MSEI (SEBI REGN. NO)-INE260805437;SEBI REGISTRATION NO. CDSL :- IN-DP-386-2018 (
     
     <!-- JS -->
     <script>
-    const toggleBtn = document.getElementById("accessibilityToggle");
-    const panel = document.getElementById("accessibilityPanel");
+    const toggleBtn = document.getElementById("accessibilityToggle_pay");
+    const panel = document.getElementById("accessibilityPanel_pay");
     
     toggleBtn.addEventListener("click", () => {
     const expanded = toggleBtn.getAttribute("aria-expanded") === "true";
@@ -1345,7 +1346,7 @@ MSEI (SEBI REGN. NO)-INE260805437;SEBI REGISTRATION NO. CDSL :- IN-DP-386-2018 (
     </script>
 
     <!-- Google Translate Script -->
-<div id="google_translate_element" style="display:none;"></div>
+<div id="google_translate_element_pay" style="display:none;"></div>
 <script type="text/javascript">
   function googleTranslateElementInit() {
     new google.translate.TranslateElement(
