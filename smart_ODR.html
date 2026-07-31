@@ -568,21 +568,23 @@
 
     
 
-    <!-- Premium Enterprise Header -->
-    <header data-uk-sticky="top: 400; cls-active: in-sticky" class="premium-header">
-        <!-- Top utility bar -->
-        <div class="premium-topbar">
+    <header data-uk-sticky="top: 400; cls-active: in-sticky">
+
+        <div id="google_translate_element" class="translate-btn"></div>
+
+        
+        <!-- header content begin -->
+        <div class="uk-section uk-padding-remove-vertical">
             <div class="uk-container">
-                <div class="uk-flex uk-flex-between uk-flex-middle">
-                    <div class="in-header-subnav">
-                        <div id="google_translate_element_nav" class="translate-btn"></div>
-                        <div class="lang-toggle" role="group" aria-label="Language selection">
-                            <button type="button" onclick="setLanguage('en')" id="lang-en" aria-pressed="true">English</button>
-                            <button type="button" onclick="setLanguage('hi')" id="lang-hi" aria-pressed="false">हिंदी</button>
-                        </div>
+                <div class="uk-grid">
+                    <div class="uk-width-1-2@m uk-width-1-2@s in-header-subnav">
+                       
+                        
                     </div>
+
+
                     
-                    <div class="in-header-button uk-visible@s">
+                    <div class="uk-width-1-2@m uk-width-1-2@s in-header-button uk-visible@s">
                         <div class="uk-flex uk-flex-right in-header-links">
                           <a href="https://ekyc.standardsec.net:8002" 
                              class="uk-button uk-button-primary uk-button-small uk-border-rounded"
@@ -603,7 +605,7 @@
                              Online Trading
                           </a>
                           &nbsp;&nbsp;
-                          <a href="https://backoffice.standardsec.net:8085/capexweb/capexweb/" 
+                          <a href="http://backoffice.standardsec.net:8085/capexweb/capexweb/" 
                              class="uk-button uk-button-primary uk-button-small uk-border-rounded"
                              aria-label="Access back office system">
                              Back Office
@@ -611,15 +613,13 @@
 
                         </div>
                       </div>
+                    
+                    <div class="uk-width-1-1">
+                        <hr class="uk-margin-remove-top">
+                    </div>
                 </div>
-            </div>
-        </div>
-
-        <!-- Main navigation bar -->
-        <div class="premium-navbar">
-            <div class="uk-container">
-                <div class="uk-flex uk-flex-middle" data-uk-grid>
-                    <div class="uk-width-expand">
+                <div class="uk-grid uk-margin-remove-top">
+                    <div class="uk-width-1-2 uk-width-expand@m">
                         <!-- header logo begin -->
                         <div class="in-header-logo uk-flex uk-flex-middle">
                             <a class="uk-logo" href="index.html" aria-label="Go to Standard Securities homepage">
@@ -628,7 +628,7 @@
                         </div>
                         <!-- header logo end -->
                     </div>
-                    <div class="in-navbar-wrapper uk-width-auto">
+                    <div class="in-navbar-wrapper uk-width-1-2 uk-width-auto@m">
                         <!-- main navigation begin -->
                         <nav class="uk-navbar-container uk-visible@m" data-uk-navbar aria-label="Main navigation">
                             <ul class="uk-navbar-nav" role="menubar">
@@ -667,7 +667,7 @@
                                   <ul class="uk-nav uk-navbar-dropdown-nav" role="menu">
                                     <li role="menuitem"><a href="https://p3plcpnl0076.prod.phx3.secureserver.net:2096/logout/?locale=en" aria-label="Employee Login page">Employee Login</a></li>
                                     <li role="menuitem"><a href="smart_ODR.html" aria-label="Smart ODR Login page">Smart ODR Login</a></li>
-                                    <li role="menuitem"><a href="https://backoffice.standardsec.net:8085/capexweb/capexweb/" aria-label="Back Office Login page">Back Office</a></li>
+                                    <li role="menuitem"><a href="http://backoffice.standardsec.net:8085/capexweb/capexweb/" aria-label="Back Office Login page">Back Office</a></li>
                                   </ul>
                                 </div>
                               </li>
@@ -693,7 +693,6 @@
                                         <li role="menuitem"><a href="https://www.mcxindia.com" aria-label="Visit MCX India official site">MCX India</a></li>
                                         <li role="menuitem"><a href="https://scores.sebi.gov.in" aria-label="Visit SEBI SCORES 2.0 grievance redressal portal">SCORES 2.0</a></li>
                                         <li role="menuitem"><a href="https://www.nseindia.com/static/trade/members-client-registration-documents" aria-label="Visit KYC Documents In Vernacular Language">KYC Documents In Vernacular Language</a></li>
-
                                       </ul>
                                     </div>
                                     <div>
@@ -719,34 +718,15 @@
                               </li>
                           
                               <!-- Complaints -->
-                                <!-- Complaints -->
                               <li role="none">
                                 <a href="complaint_new.html" role="menuitem" aria-label="Submit or check Complaints">Complaints</a>
                               </li>
                               <li>
-                                <div id="google_translate_nav_1"></div>
-                              </li>
-                              <li>
-                                <div id="google_translate_nav_2"></div>
+                                <div id="google_translate_nav"></div>
                               </li>
                               
                             </ul>
                           </nav>
-                          
-                          
-                        <!-- main navigation end -->
-                    </div>
-                    <!-- Mobile Navigation Toggle -->
-                    <div class="mobile-nav-toggle-wrapper" id="mobileNavWrapper">
-                        <button
-                            class="mobile-nav-toggle"
-                            id="mobileNavToggle"
-                            type="button"
-                            aria-expanded="false"
-                            aria-controls="mobileNavPanel"
-                            aria-label="Open navigation menu">
-                            <span class="hamburger-icon" aria-hidden="true">☰</span>
-                        </button>
                     </div>
                 </div>
             </div>
@@ -1127,9 +1107,9 @@
 </body>
 
     
-<footer class="premium-footer" role="contentinfo">
+<footer>
         <!-- footer content begin -->
-        <div class="premium-footer-inner">
+        <div class="uk-section uk-padding-remove-vertical uk-margin-medium-top">
           <div class="uk-grid">
               <div class="uk-width-1-1">
                 <hr>
